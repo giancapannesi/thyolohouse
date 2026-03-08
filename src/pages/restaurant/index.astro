@@ -1,8 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getMenu, siteInfo } from '../../utils/data';
+import { siteInfo } from '../../utils/data';
 
-const menu = getMenu();
 const whatsappReserve = `https://wa.me/${siteInfo.whatsapp}?text=${encodeURIComponent("Hello! I'd like to make a restaurant reservation at The Thyolo House.")}`;
 
 const jsonLd = [
@@ -25,26 +24,7 @@ const jsonLd = [
       "latitude": siteInfo.geo.lat,
       "longitude": siteInfo.geo.lng
     },
-    "hasMenu": {
-      "@type": "Menu",
-      "name": "The Thyolo House Menu",
-      "hasMenuSection": menu.categories.map((cat) => ({
-        "@type": "MenuSection",
-        "name": cat.name,
-        "description": cat.description,
-        "hasMenuItem": cat.items.map((item) => ({
-          "@type": "MenuItem",
-          "name": item.name,
-          "description": item.description,
-          "suitableForDiet": item.dietary.map((d) =>
-            d === 'vegetarian' ? 'https://schema.org/VegetarianDiet'
-            : d === 'vegan' ? 'https://schema.org/VeganDiet'
-            : d === 'gluten-free' ? 'https://schema.org/GlutenFreeDiet'
-            : undefined
-          ).filter(Boolean)
-        }))
-      }))
-    }
+    "servesCuisine": ["Italian", "Fusion", "Garden-to-Table"]
   },
   {
     "@context": "https://schema.org",
@@ -82,12 +62,14 @@ const jsonLd = [
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
         <div>
           <h2 class="text-3xl md:text-4xl text-text mb-8" style="font-family: var(--font-heading); font-weight: 300;">Garden to Table</h2>
-          <p class="text-muted leading-relaxed mb-6">{menu.intro}</p>
           <p class="text-muted leading-relaxed mb-6">
-            Our chemical-free garden supplies fresh herbs, vegetables, and edible flowers daily. What we cannot grow, we source locally — Lake Malawi chambo, free-range chicken, and tropical fruits from the surrounding region.
+            The Thyolo House restaurant serves à la carte Italian fusion cuisine, made with ingredients picked fresh from our chemical-free garden. Breakfast is included for all hotel guests.
+          </p>
+          <p class="text-muted leading-relaxed mb-6">
+            Our garden supplies fresh herbs, vegetables, and edible flowers daily. What we cannot grow, we source locally — Lake Malawi chambo, free-range chicken, and tropical fruits from the surrounding region.
           </p>
           <p class="text-muted leading-relaxed">
-            Whether you join us for a leisurely lunch on the veranda or a candlelit dinner under the stars, every meal at The Thyolo House is crafted with care and seasoned with the story of this place.
+            Whether you join us for a leisurely lunch on the veranda or a candlelit dinner under the stars, every meal is crafted with care. The restaurant is open to both hotel guests and visitors — just book ahead so we can prepare something special.
           </p>
         </div>
         <div>
@@ -133,65 +115,6 @@ const jsonLd = [
         </div>
         <div class="aspect-[4/3] overflow-hidden">
           <img src="/images/estate/restaurant-exterior.jpg" alt="The Thyolo House restaurant building with white curtains and garden flowers" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div class="ornament max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">&#10038;</div>
-
-  <!-- Menu -->
-  <section class="py-20 md:py-32">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <p class="label-caps mb-4">A Seasonal Selection</p>
-        <h2 class="text-4xl md:text-5xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 300;">Our Menu</h2>
-        <p class="text-muted text-sm">Our menu changes with the seasons and what the garden provides.</p>
-      </div>
-
-      <div class="space-y-20">
-        {menu.categories.map((category) => (
-          <div>
-            <!-- Category Header -->
-            <div class="text-center mb-10">
-              <h3 class="text-2xl md:text-3xl text-text mb-2" style="font-family: var(--font-heading); font-weight: 300;">{category.name}</h3>
-              <p class="text-muted text-sm italic">{category.description}</p>
-              <div class="ornament mt-6 mb-0">&#183;</div>
-            </div>
-
-            <!-- Menu Items -->
-            <div class="space-y-8">
-              {category.items.map((item) => (
-                <div class="group">
-                  <div class="flex items-baseline gap-2 mb-1">
-                    <h4 class="text-text text-lg" style="font-family: var(--font-heading);">{item.name}</h4>
-                    {item.dietary.length > 0 && (
-                      <span class="text-accent text-xs">
-                        {item.dietary.map((d: string) =>
-                          d === 'gluten-free' ? 'GF' : d === 'vegetarian' ? 'V' : d === 'vegan' ? 'VG' : d
-                        ).join(' ')}
-                      </span>
-                    )}
-                    <span class="flex-1 border-b border-dotted border-border mx-2 mb-1"></span>
-                    {item.price && (
-                      <span class="text-muted text-sm whitespace-nowrap">MK {item.price.toLocaleString()}</span>
-                    )}
-                  </div>
-                  <p class="text-muted text-sm leading-relaxed pl-0">{item.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <!-- Dietary Key -->
-      <div class="mt-16 pt-8 border-t border-border">
-        <p class="label-caps mb-4">Dietary Key</p>
-        <div class="flex flex-wrap gap-6">
-          <span class="text-muted text-sm"><span class="text-accent">V</span> Vegetarian</span>
-          <span class="text-muted text-sm"><span class="text-accent">VG</span> Vegan</span>
-          <span class="text-muted text-sm"><span class="text-accent">GF</span> Gluten Free</span>
         </div>
       </div>
     </div>
