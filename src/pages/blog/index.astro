@@ -56,7 +56,13 @@ const jsonLd = [
 
                 <!-- Image -->
                 <div class={i % 2 === 1 ? 'lg:order-2' : ''}>
-                  <div class="img-placeholder aspect-[4/3]"></div>
+                  {post.image ? (
+                    <div class="aspect-[4/3] overflow-hidden">
+                      <img src={post.image} alt={post.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading={i === 0 ? 'eager' : 'lazy'} />
+                    </div>
+                  ) : (
+                    <div class="img-placeholder aspect-[4/3]"></div>
+                  )}
                 </div>
 
                 <!-- Text -->

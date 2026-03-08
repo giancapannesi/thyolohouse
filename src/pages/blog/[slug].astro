@@ -64,7 +64,13 @@ const jsonLd = [
   <article>
 
     <!-- Hero Image -->
-    <div class="img-placeholder aspect-[21/9]"></div>
+    {post.image ? (
+      <div class="aspect-[21/9] overflow-hidden">
+        <img src={post.image} alt={post.title} class="w-full h-full object-cover" />
+      </div>
+    ) : (
+      <div class="img-placeholder aspect-[21/9]"></div>
+    )}
 
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
 
