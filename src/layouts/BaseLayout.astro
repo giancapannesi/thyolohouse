@@ -51,10 +51,10 @@ const whatsappUrl = `https://wa.me/${siteInfo.whatsapp}?text=${encodeURIComponen
   <nav class="relative z-50 bg-bg" id="main-nav">
     <div class="max-w-6xl mx-auto px-6 lg:px-8">
       <!-- Top bar: logo centered, contact right -->
-      <div class="flex items-center justify-between py-5 border-b border-border/60">
+      <div class="flex items-center justify-between py-6 border-b border-border/60">
         <span class="label-caps hidden md:block">Conforzi Tea Estate, Thyolo</span>
         <a href="/" class="text-center" style="font-family: var(--font-heading);">
-          <span class="text-2xl md:text-3xl font-light tracking-wide text-text">The Thyolo House</span>
+          <span class="text-3xl md:text-4xl font-light tracking-wide text-text">The Thyolo House</span>
         </a>
         <div class="hidden md:flex items-center gap-4">
           <a href={whatsappUrl} target="_blank" rel="noopener" class="label-caps text-primary hover:text-primary-hover transition-colors">
@@ -63,13 +63,13 @@ const whatsappUrl = `https://wa.me/${siteInfo.whatsapp}?text=${encodeURIComponen
         </div>
         <!-- Mobile menu button -->
         <button id="mobile-menu-btn" class="md:hidden p-2 text-muted hover:text-text" aria-label="Open menu">
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+          <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
       </div>
       <!-- Desktop nav links -->
-      <div class="hidden md:flex items-center justify-center gap-10 py-3">
+      <div class="hidden md:flex items-center justify-center gap-10 py-4">
         <a href="/rooms/" class="label-caps hover:text-primary transition-colors">The House</a>
         <a href="/restaurant/" class="label-caps hover:text-primary transition-colors">Restaurant</a>
         <a href="/experiences/" class="label-caps hover:text-primary transition-colors">Experiences</a>
@@ -80,16 +80,16 @@ const whatsappUrl = `https://wa.me/${siteInfo.whatsapp}?text=${encodeURIComponen
     </div>
     <!-- Mobile menu -->
     <div id="mobile-menu" class="hidden md:hidden border-t border-border bg-card">
-      <div class="px-6 py-6 space-y-4">
-        <a href="/rooms/" class="block text-text hover:text-primary transition-colors" style="font-family: var(--font-heading); font-size: 1.25rem;">The House</a>
-        <a href="/restaurant/" class="block text-text hover:text-primary transition-colors" style="font-family: var(--font-heading); font-size: 1.25rem;">Restaurant</a>
-        <a href="/experiences/" class="block text-text hover:text-primary transition-colors" style="font-family: var(--font-heading); font-size: 1.25rem;">Experiences</a>
-        <a href="/gallery/" class="block text-text hover:text-primary transition-colors" style="font-family: var(--font-heading); font-size: 1.25rem;">Gallery</a>
-        <a href="/about/" class="block text-text hover:text-primary transition-colors" style="font-family: var(--font-heading); font-size: 1.25rem;">Our Story</a>
-        <a href="/contact/" class="block text-text hover:text-primary transition-colors" style="font-family: var(--font-heading); font-size: 1.25rem;">Contact</a>
+      <div class="px-6 py-8 space-y-5">
+        <a href="/rooms/" class="block text-text hover:text-primary transition-colors" style="font-family: var(--font-heading); font-size: 1.5rem;">The House</a>
+        <a href="/restaurant/" class="block text-text hover:text-primary transition-colors" style="font-family: var(--font-heading); font-size: 1.5rem;">Restaurant</a>
+        <a href="/experiences/" class="block text-text hover:text-primary transition-colors" style="font-family: var(--font-heading); font-size: 1.5rem;">Experiences</a>
+        <a href="/gallery/" class="block text-text hover:text-primary transition-colors" style="font-family: var(--font-heading); font-size: 1.5rem;">Gallery</a>
+        <a href="/about/" class="block text-text hover:text-primary transition-colors" style="font-family: var(--font-heading); font-size: 1.5rem;">Our Story</a>
+        <a href="/contact/" class="block text-text hover:text-primary transition-colors" style="font-family: var(--font-heading); font-size: 1.5rem;">Contact</a>
         <hr class="border-border/60" />
-        <a href={whatsappUrl} target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-primary font-semibold text-sm">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <a href={whatsappUrl} target="_blank" rel="noopener" class="inline-flex items-center gap-3 text-primary font-semibold text-lg">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Book via WhatsApp
         </a>
       </div>
@@ -107,53 +107,53 @@ const whatsappUrl = `https://wa.me/${siteInfo.whatsapp}?text=${encodeURIComponen
       <!-- Top: Logo + tagline -->
       <div class="text-center mb-12">
         <h3 class="text-3xl md:text-4xl text-linen mb-3" style="font-family: var(--font-heading); font-weight: 300;">The Thyolo House</h3>
-        <p class="text-sm italic text-linen/50" style="font-family: var(--font-heading);">{siteInfo.tagline}</p>
+        <p class="text-lg italic text-linen/50" style="font-family: var(--font-heading);">{siteInfo.tagline}</p>
       </div>
 
       <div class="ornament text-linen/20 mb-12">
         <svg class="w-4 h-4 flex-shrink-0" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L10 6H16L11 9.5L13 16L8 12L3 16L5 9.5L0 6H6L8 0Z"/></svg>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-sm">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
         <div class="text-center md:text-left">
           <p class="label-caps text-linen/40 mb-4">Visit</p>
-          <p class="mb-1">Conforzi Tea Estate</p>
-          <p class="mb-1">Thyolo, Malawi</p>
+          <p class="mb-2 text-lg">Conforzi Tea Estate</p>
+          <p class="mb-2 text-lg">Thyolo, Malawi</p>
           <p class="text-linen/50 mt-3">20 minutes from Limbe</p>
         </div>
         <div class="text-center">
           <p class="label-caps text-linen/40 mb-4">Connect</p>
-          <p class="mb-2"><a href={`mailto:${siteInfo.email}`} class="hover:text-linen transition-colors">{siteInfo.email}</a></p>
-          <p class="mb-2"><a href={whatsappUrl} target="_blank" rel="noopener" class="hover:text-linen transition-colors">+265 884 202 040</a></p>
-          <div class="flex justify-center gap-5 mt-4">
+          <p class="mb-3"><a href={`mailto:${siteInfo.email}`} class="hover:text-linen transition-colors text-lg">{siteInfo.email}</a></p>
+          <p class="mb-3"><a href={whatsappUrl} target="_blank" rel="noopener" class="hover:text-linen transition-colors text-lg">+265 884 202 040</a></p>
+          <div class="flex justify-center gap-6 mt-5">
             <a href={siteInfo.facebook} target="_blank" rel="noopener" class="text-linen/40 hover:text-linen transition-colors" aria-label="Facebook">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
             </a>
             <a href={siteInfo.instagram} target="_blank" rel="noopener" class="text-linen/40 hover:text-linen transition-colors" aria-label="Instagram">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
             </a>
             <a href={siteInfo.tripadvisor} target="_blank" rel="noopener" class="text-linen/40 hover:text-linen transition-colors" aria-label="TripAdvisor">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.006 4.295c-2.67 0-5.338.784-7.645 2.353H0l1.963 2.135a5.997 5.997 0 004.3 10.14 5.993 5.993 0 005.738-4.21 5.993 5.993 0 005.738 4.21 5.997 5.997 0 004.3-10.14L24 6.648h-4.35a13.573 13.573 0 00-7.644-2.353zM6.26 17.082a4.158 4.158 0 110-8.316 4.158 4.158 0 010 8.316zm11.48 0a4.158 4.158 0 110-8.316 4.158 4.158 0 010 8.316zM6.26 10.767a2.157 2.157 0 100 4.314 2.157 2.157 0 000-4.314zm11.48 0a2.157 2.157 0 100 4.314 2.157 2.157 0 000-4.314z"/></svg>
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12.006 4.295c-2.67 0-5.338.784-7.645 2.353H0l1.963 2.135a5.997 5.997 0 004.3 10.14 5.993 5.993 0 005.738-4.21 5.993 5.993 0 005.738 4.21 5.997 5.997 0 004.3-10.14L24 6.648h-4.35a13.573 13.573 0 00-7.644-2.353zM6.26 17.082a4.158 4.158 0 110-8.316 4.158 4.158 0 010 8.316zm11.48 0a4.158 4.158 0 110-8.316 4.158 4.158 0 010 8.316zM6.26 10.767a2.157 2.157 0 100 4.314 2.157 2.157 0 000-4.314zm11.48 0a2.157 2.157 0 100 4.314 2.157 2.157 0 000-4.314z"/></svg>
             </a>
             <a href={siteInfo.google} target="_blank" rel="noopener" class="text-linen/40 hover:text-linen transition-colors" aria-label="Google">
-              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
             </a>
           </div>
         </div>
         <div class="text-center md:text-right">
           <p class="label-caps text-linen/40 mb-4">Explore</p>
-          <ul class="space-y-2">
-            <li><a href="/rooms/" class="hover:text-linen transition-colors">The House</a></li>
-            <li><a href="/restaurant/" class="hover:text-linen transition-colors">Restaurant</a></li>
-            <li><a href="/experiences/" class="hover:text-linen transition-colors">Experiences</a></li>
-            <li><a href="/gallery/" class="hover:text-linen transition-colors">Gallery</a></li>
-            <li><a href="/blog/" class="hover:text-linen transition-colors">Journal</a></li>
+          <ul class="space-y-3">
+            <li><a href="/rooms/" class="hover:text-linen transition-colors text-lg">The House</a></li>
+            <li><a href="/restaurant/" class="hover:text-linen transition-colors text-lg">Restaurant</a></li>
+            <li><a href="/experiences/" class="hover:text-linen transition-colors text-lg">Experiences</a></li>
+            <li><a href="/gallery/" class="hover:text-linen transition-colors text-lg">Gallery</a></li>
+            <li><a href="/blog/" class="hover:text-linen transition-colors text-lg">Journal</a></li>
           </ul>
         </div>
       </div>
 
       <div class="mt-14 pt-6 border-t border-linen/10 text-center">
-        <p class="text-xs text-linen/30">&copy; {new Date().getFullYear()} The Thyolo House. Conforzi Tea Estate, Thyolo, Malawi.</p>
+        <p class="text-linen/30">&copy; {new Date().getFullYear()} The Thyolo House. Conforzi Tea Estate, Thyolo, Malawi.</p>
       </div>
     </div>
   </footer>
