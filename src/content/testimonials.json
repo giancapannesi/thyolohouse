@@ -1,30 +1,72 @@
 [
   {
-    "name": "Sarah M.",
-    "source": "TripAdvisor",
-    "rating": 5,
-    "text": "An absolute gem hidden in the tea plantations. The food was exceptional — Italian flavours with a Malawian twist. Flavia is a wonderful host.",
-    "date": "2025-11"
-  },
-  {
-    "name": "James K.",
-    "source": "TripAdvisor",
-    "rating": 5,
-    "text": "The most peaceful place I've stayed in Malawi. Waking up to birdsong and tea garden views was magical. The garden-to-table dinner was a highlight of our trip.",
-    "date": "2025-09"
-  },
-  {
-    "name": "Marta L.",
+    "name": "Catherine",
     "source": "Google",
     "rating": 5,
-    "text": "We came for lunch and stayed for the art workshop. What a unique experience. The house has so much character and history.",
-    "date": "2025-12"
+    "text": "I cannot recommend a stay here highly enough. I still can't believe how beautiful everything was here. The rooms are stunning and the gardens too. The food was impeccable and the service from Amos was top class.",
+    "date": "2024-11"
   },
   {
-    "name": "David & Ruth P.",
-    "source": "TripAdvisor",
-    "rating": 4,
-    "text": "A wonderful weekend escape from Blantyre. The cottage by the pool was perfect. Great food, lovely gardens, and Flavia's art studio was a real bonus.",
+    "name": "Gary Smith",
+    "source": "Google",
+    "rating": 5,
+    "text": "Flavia is a wonderful host, Amos ensures wonderful service and the chef is a magician — this was the best food I'd had in a month. The location is beautiful and the accommodation classic style with lovely decoration throughout. I'd stay here again in a heartbeat.",
     "date": "2026-01"
+  },
+  {
+    "name": "Jessica Schackermann",
+    "source": "Google",
+    "rating": 5,
+    "text": "A true hidden gem. Very nice garden restaurant with great food and an amazing little forest with nice walking trails. We saw monkeys and many birds, including an owl.",
+    "date": "2024-07"
+  },
+  {
+    "name": "Becky Stout",
+    "source": "Google",
+    "rating": 5,
+    "text": "Absolutely gorgeous and well worth the visit. The room was amazing — clean, spacious, good shower, comfy bed! The food was to die for — the best main course I've had in Malawi. I had the ravioli with mushrooms.",
+    "date": "2023-08"
+  },
+  {
+    "name": "Elie Olivier",
+    "source": "Google",
+    "rating": 5,
+    "text": "Amazing half-day in Thyolo House! The staff, especially Amos, is so welcoming and the food so delicious! No doubt the best pasta in Malawi. You can also walk in the forest and see the tea plantations around.",
+    "date": "2024-08"
+  },
+  {
+    "name": "Niamh Russell",
+    "source": "Google",
+    "rating": 5,
+    "text": "Absolutely beautiful oasis! Very comfortable and beautiful grounds to walk around. The staff were so lovely and helpful. Yummy Italian food and amazing breakfast!",
+    "date": "2025-04"
+  },
+  {
+    "name": "Gerrit Roorda",
+    "source": "Google",
+    "rating": 5,
+    "text": "Just perfect. Gorgeous scenery, beautiful house and swimming pool, very friendly staff, real Italian food. Couldn't be better.",
+    "date": "2024-07"
+  },
+  {
+    "name": "harrycI7199CD",
+    "source": "TripAdvisor",
+    "rating": 5,
+    "text": "This is just a gem of a spot. The ice cream and orange cake is lush, service is just exceptional, and the environment is both child friendly and a great date spot.",
+    "date": "2024-08"
+  },
+  {
+    "name": "belle1012",
+    "source": "TripAdvisor",
+    "rating": 5,
+    "text": "We went here for lunch, upon the recommendation of a friend. Definitely one of the best pasta dishes I have ever had. The staff are so warm and friendly.",
+    "date": "2024-07"
+  },
+  {
+    "name": "Kate E.",
+    "source": "TripAdvisor",
+    "rating": 5,
+    "text": "My friends and I booked a weekend away at this little gem about 30 mins from Blantyre. We had an outdoor tea party that the staff hosted for us and nothing was too hard. The rooms were so well presented.",
+    "date": "2023-02"
   }
 ]
