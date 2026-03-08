@@ -15,7 +15,7 @@
   --color-card-hover: #F0EBE0;
   --color-border: #D4C9B8;
   --color-text: #2A1F14;
-  --color-muted: #8C7B6A;
+  --color-muted: #5A4A3C;
   --color-primary: #B85C38;
   --color-primary-hover: #9E4D2F;
   --color-accent: #4A5D3A;
@@ -38,10 +38,26 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   font-family: var(--font-body);
-  font-weight: 300;
-  font-size: 1.0625rem;
-  line-height: 1.7;
+  font-weight: 400;
+  font-size: 1.1875rem;
+  line-height: 1.75;
   letter-spacing: 0.01em;
+}
+
+/* Override Tailwind's small text to be more readable */
+.text-sm {
+  font-size: 1rem !important;
+  line-height: 1.65 !important;
+}
+
+.text-xs {
+  font-size: 0.9375rem !important;
+  line-height: 1.6 !important;
+}
+
+.text-lg {
+  font-size: 1.3125rem !important;
+  line-height: 1.7 !important;
 }
 
 h1, h2, h3, h4, h5 {
@@ -98,10 +114,10 @@ hr.editorial {
 .pull-quote {
   font-family: var(--font-heading);
   font-style: italic;
-  font-weight: 300;
-  font-size: 1.5rem;
+  font-weight: 400;
+  font-size: 1.625rem;
   line-height: 1.5;
-  color: var(--color-muted);
+  color: var(--color-text);
   border-left: 2px solid var(--color-primary);
   padding-left: 1.5rem;
 }
@@ -109,10 +125,10 @@ hr.editorial {
 /* Uppercase tracking for labels */
 .label-caps {
   font-family: var(--font-body);
-  font-size: 0.6875rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   color: var(--color-muted);
 }
 

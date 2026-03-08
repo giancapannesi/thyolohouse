@@ -64,7 +64,7 @@ const jsonLd = [
 
   <!-- Hero — full bleed, cinematic -->
   <section class="relative min-h-[85vh] md:min-h-[92vh] flex items-end overflow-hidden grain">
-    <div class="absolute inset-0" style="background-image: url('/images/estate/garden-walkway.jpg'); background-size: cover; background-position: center;"></div>
+    <div class="absolute inset-0" style="background-image: url('/images/estate/forest-view.jpg'); background-size: cover; background-position: center;"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-charcoal/20 to-transparent"></div>
     <div class="relative z-10 w-full pb-16 md:pb-24 px-6 lg:px-8">
       <div class="max-w-6xl mx-auto">
@@ -72,7 +72,7 @@ const jsonLd = [
         <h1 class="text-5xl sm:text-6xl md:text-8xl text-linen mb-6 fade-up fade-up-delay-1" style="font-family: var(--font-heading); font-weight: 300; line-height: 0.95;">
           A place apart
         </h1>
-        <p class="text-lg md:text-xl text-linen/75 max-w-xl mb-10 fade-up fade-up-delay-2" style="font-weight: 300; line-height: 1.6;">
+        <p class="text-lg md:text-xl text-linen/75 max-w-xl mb-10 fade-up fade-up-delay-2" style="line-height: 1.6;">
           Five rooms on a century-old tea estate. Italian fusion from our garden. Art, forest, silence.
         </p>
         <div class="flex flex-wrap gap-4 fade-up fade-up-delay-3">
@@ -128,7 +128,7 @@ const jsonLd = [
               <img src={roomImages[room.slug] || '/images/rooms/heritage-suite.jpg'} alt={`${room.name} at The Thyolo House`} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
             </div>
             <div class="flex items-baseline justify-between">
-              <h3 class="text-xl md:text-2xl text-text group-hover:text-primary transition-colors" style="font-family: var(--font-heading); font-weight: 400;">
+              <h3 class="text-xl md:text-2xl text-text group-hover:text-primary transition-colors" style="font-family: var(--font-heading);">
                 {room.name}
               </h3>
               <span class="label-caps text-muted/60">{room.type}</span>
@@ -142,7 +142,7 @@ const jsonLd = [
               <img src={roomImages[room.slug] || '/images/rooms/heritage-suite.jpg'} alt={`${room.name} at The Thyolo House`} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
             </div>
             <div class="flex items-baseline justify-between">
-              <h3 class="text-xl md:text-2xl text-text group-hover:text-primary transition-colors" style="font-family: var(--font-heading); font-weight: 400;">
+              <h3 class="text-xl md:text-2xl text-text group-hover:text-primary transition-colors" style="font-family: var(--font-heading);">
                 {room.name}
               </h3>
               <span class="label-caps text-muted/60">{room.type}</span>
@@ -222,7 +222,7 @@ const jsonLd = [
               <img src={experienceImages[exp.slug] || '/images/estate/garden-view.jpg'} alt={`${exp.name} experience at The Thyolo House`} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
             </div>
             <p class="label-caps text-primary mb-2">{exp.duration}</p>
-            <h3 class="text-2xl text-text mb-3" style="font-family: var(--font-heading); font-weight: 400;">
+            <h3 class="text-2xl text-text mb-3" style="font-family: var(--font-heading);">
               {exp.name}
             </h3>
             <p class="text-muted text-sm leading-relaxed">{exp.description.slice(0, 150)}...</p>
@@ -270,7 +270,7 @@ const jsonLd = [
           <h2 class="text-4xl md:text-5xl text-text mb-8" style="font-family: var(--font-heading); font-weight: 300;">
             Find Us
           </h2>
-          <p class="text-muted text-lg mb-4" style="font-weight: 300;">
+          <p class="text-muted text-lg mb-4">
             The Thyolo House sits on the historic Conforzi Tea Estate in the Thyolo highlands of southern Malawi.
           </p>
           <p class="text-muted mb-8">
@@ -303,7 +303,7 @@ const jsonLd = [
       <h2 class="text-4xl md:text-5xl text-linen mb-6" style="font-family: var(--font-heading); font-weight: 300;">
         Come stay with us
       </h2>
-      <p class="text-linen/60 mb-10 text-lg" style="font-weight: 300;">
+      <p class="text-linen/60 mb-10 text-lg">
         Five rooms. One extraordinary estate. Your own quiet corner of Malawi.
       </p>
       <a href={whatsappBook} target="_blank" rel="noopener"
