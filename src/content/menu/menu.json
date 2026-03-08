@@ -1,0 +1,42 @@
+{
+  "intro": "Our kitchen draws from the Italian culinary tradition, blending it with Thai, Indian, and continental flavours. Many of our ingredients come straight from our chemical-free garden, and our coffees and teas are sourced from the neighbouring estates.",
+  "categories": [
+    {
+      "name": "Starters",
+      "description": "Fresh from the garden",
+      "items": [
+        { "name": "Bruschetta al Pomodoro", "description": "Garden tomatoes, fresh basil, garlic on toasted ciabatta", "dietary": ["vegetarian"], "price": null },
+        { "name": "Thai Coconut Soup", "description": "Creamy coconut broth with lemongrass, galangal, and garden vegetables", "dietary": ["vegetarian", "gluten-free"], "price": null },
+        { "name": "Garden Salad", "description": "Seasonal greens, herbs, and edible flowers from our garden with house vinaigrette", "dietary": ["vegetarian", "vegan", "gluten-free"], "price": null }
+      ]
+    },
+    {
+      "name": "Mains",
+      "description": "Italian fusion with African soul",
+      "items": [
+        { "name": "Pasta al Pesto", "description": "Fresh pasta with garden basil pesto, pine nuts, and parmesan", "dietary": ["vegetarian"], "price": null },
+        { "name": "Chicken Thyolo", "description": "Free-range chicken with Malawian spices, served with seasonal vegetables", "dietary": ["gluten-free"], "price": null },
+        { "name": "Fish of the Day", "description": "Lake Malawi chambo or local catch, prepared Italian style", "dietary": ["gluten-free"], "price": null },
+        { "name": "Vegetable Curry", "description": "Garden vegetables in a fragrant Indian-inspired curry with basmati rice", "dietary": ["vegetarian", "vegan", "gluten-free"], "price": null }
+      ]
+    },
+    {
+      "name": "Desserts",
+      "description": "Sweet endings",
+      "items": [
+        { "name": "Tiramisu", "description": "Classic Italian tiramisu with Thyolo estate coffee", "dietary": ["vegetarian"], "price": null },
+        { "name": "Tropical Fruit Platter", "description": "Seasonal Malawian fruits — mango, papaya, passion fruit", "dietary": ["vegetarian", "vegan", "gluten-free"], "price": null }
+      ]
+    },
+    {
+      "name": "Beverages",
+      "description": "From the estate and beyond",
+      "items": [
+        { "name": "Estate Tea Selection", "description": "Black, green, and specialty teas from neighbouring Conforzi and Satemwa estates", "dietary": ["vegan"], "price": null },
+        { "name": "Estate Coffee", "description": "Freshly ground Malawian coffee", "dietary": ["vegan"], "price": null },
+        { "name": "Fresh Juice", "description": "Seasonal fruit juice — mango, passion fruit, or citrus", "dietary": ["vegan", "gluten-free"], "price": null },
+        { "name": "Cocktails", "description": "Signature cocktails crafted with local spirits and garden botanicals", "dietary": [], "price": null }
+      ]
+    }
+  ]
+}

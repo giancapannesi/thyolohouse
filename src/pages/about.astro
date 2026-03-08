@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteInfo } from '../utils/data';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About The Thyolo House",
+    "description": "The story of The Thyolo House — a boutique hotel and restaurant on the historic Conforzi Tea Estate in Thyolo, Malawi.",
+    "url": `${siteInfo.url}/about/`,
+    "mainEntity": {
+      "@type": "LodgingBusiness",
+      "name": siteInfo.name,
+      "url": siteInfo.url
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": siteInfo.url },
+      { "@type": "ListItem", "position": 2, "name": "About", "item": `${siteInfo.url}/about/` }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Our Story"
+  description="The story of The Thyolo House — a colonial farmhouse transformed into a boutique retreat on the Conforzi Tea Estate in Thyolo, Malawi, by resident artist and host Flavia Conforzi."
+  jsonLd={jsonLd}
+>
+
+  <!-- Hero -->
+  <section class="relative py-20 md:py-32 bg-gradient-to-br from-primary/20 via-primary/10 to-accent/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-6xl font-bold text-text mb-6" style="font-family: var(--font-heading);">Our Story</h1>
+      <p class="text-muted text-lg max-w-2xl mx-auto leading-relaxed">
+        A century-old farmhouse, a tea estate with deep roots, and one woman's vision to share it all with the world.
+      </p>
+    </div>
+  </section>
+
+  <!-- History -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+        <div class="lg:col-span-3">
+          <h2 class="text-2xl md:text-3xl font-bold text-text mb-6" style="font-family: var(--font-heading);">The Conforzi Tea Estate</h2>
+          <p class="text-muted leading-relaxed mb-4">
+            The Thyolo House sits on the Conforzi Tea Estate, one of the historic tea-growing properties in Malawi's Thyolo highlands. The estate dates back to the early days of tea cultivation in the Shire Highlands, when Italian settlers established plantations across these misty, fertile hills.
+          </p>
+          <p class="text-muted leading-relaxed mb-4">
+            The main house was built in the early 1900s as a colonial farmhouse — a solid, whitewashed structure with deep verandas, high ceilings, and hardwood floors designed for the tropical climate. For over a century, it has stood among the tea gardens, weathering the seasons and quietly accumulating stories.
+          </p>
+          <p class="text-muted leading-relaxed">
+            Today, the estate remains a working tea property surrounded by some of the most beautiful landscape in southern Malawi — rolling green rows of tea bushes, pockets of indigenous forest, and views stretching across the Thyolo highlands.
+          </p>
+        </div>
+        <div class="lg:col-span-2">
+          <div class="aspect-[3/4] bg-primary/10 rounded-xl flex items-center justify-center text-muted">
+            <svg class="w-14 h-14 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" /></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Heritage -->
+  <section class="py-16 md:py-24 bg-card border-y border-border">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+        <div class="lg:col-span-2 lg:order-1">
+          <div class="aspect-[3/4] bg-primary/10 rounded-xl flex items-center justify-center text-muted">
+            <svg class="w-14 h-14 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" /></svg>
+          </div>
+        </div>
+        <div class="lg:col-span-3 lg:order-2">
+          <h2 class="text-2xl md:text-3xl font-bold text-text mb-6" style="font-family: var(--font-heading);">Heritage & Character</h2>
+          <p class="text-muted leading-relaxed mb-4">
+            The house retains the character of its colonial origins — thick whitewashed walls, original hardwood floors, high ceilings with exposed beams, and deep verandas perfect for watching the sun set over the tea gardens.
+          </p>
+          <p class="text-muted leading-relaxed mb-4">
+            Every room tells a story. Period furnishings sit alongside original artwork. The gardens, both ornamental and productive, have been carefully tended for decades. Century-old trees shade the swimming pool, and a pocket of indigenous forest provides a haven for birds and native flora just steps from your door.
+          </p>
+          <p class="text-muted leading-relaxed">
+            This is not a hotel that was built — it is a home that was opened. And that distinction is what makes The Thyolo House unique.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flavia -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start">
+        <div class="lg:col-span-3">
+          <h2 class="text-2xl md:text-3xl font-bold text-text mb-6" style="font-family: var(--font-heading);">Flavia — Artist, Host, Visionary</h2>
+          <p class="text-muted leading-relaxed mb-4">
+            At the heart of The Thyolo House is Flavia Conforzi — artist, cook, gardener, and the creative force behind the transformation of the family estate into a boutique retreat.
+          </p>
+          <p class="text-muted leading-relaxed mb-4">
+            Flavia's art studio sits on the grounds, and her work — vibrant paintings and mixed-media pieces inspired by Malawian life, nature, and colour — adorns the walls of the house and the rooms. Guests are invited to join her for creative workshops, a hands-on experience that has become one of the most loved parts of a stay here.
+          </p>
+          <p class="text-muted leading-relaxed">
+            In the kitchen, her Italian heritage meets Malawian ingredients. The result is a menu that is fresh, seasonal, and entirely her own — garden-to-table cooking that draws on family recipes, local produce, and flavours from around the world.
+          </p>
+        </div>
+        <div class="lg:col-span-2">
+          <div class="aspect-[3/4] bg-primary/10 rounded-xl flex items-center justify-center text-muted">
+            <svg class="w-14 h-14 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" /></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sustainability -->
+  <section class="py-16 md:py-24 bg-card border-y border-border">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-text mb-6" style="font-family: var(--font-heading);">Rooted in the Land</h2>
+      <p class="text-muted text-lg leading-relaxed max-w-3xl mx-auto mb-12">
+        Sustainability at The Thyolo House is not a marketing exercise — it is simply how things have always been done here.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-6">
+          <div class="w-14 h-14 mx-auto mb-5 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21c-4-4-8-7.5-8-12a8 8 0 0116 0c0 4.5-4 8-8 12z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 13V7" /></svg>
+          </div>
+          <h3 class="font-bold text-text mb-2" style="font-family: var(--font-heading);">Chemical-Free Garden</h3>
+          <p class="text-muted text-sm leading-relaxed">
+            Our kitchen garden grows herbs, vegetables, and edible flowers without chemicals — supplying the restaurant with the freshest possible ingredients, year-round.
+          </p>
+        </div>
+        <div class="p-6">
+          <div class="w-14 h-14 mx-auto mb-5 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>
+          </div>
+          <h3 class="font-bold text-text mb-2" style="font-family: var(--font-heading);">Local Sourcing</h3>
+          <p class="text-muted text-sm leading-relaxed">
+            What we cannot grow, we source locally — from Lake Malawi fish to free-range chicken, Thyolo tea, and Malawian coffee. Our supply chain starts at the garden gate.
+          </p>
+        </div>
+        <div class="p-6">
+          <div class="w-14 h-14 mx-auto mb-5 bg-primary/10 rounded-full flex items-center justify-center text-primary">
+            <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3H21m-3.75 3H21" /></svg>
+          </div>
+          <h3 class="font-bold text-text mb-2" style="font-family: var(--font-heading);">Community</h3>
+          <p class="text-muted text-sm leading-relaxed">
+            The Thyolo House is part of the fabric of the Thyolo community. Our staff are local, our suppliers are neighbours, and our story is inseparable from this place.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold text-text mb-4" style="font-family: var(--font-heading);">Come and See for Yourself</h2>
+      <p class="text-muted text-lg mb-8 leading-relaxed">
+        The Thyolo House is best experienced in person. We would love to welcome you.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/rooms/" class="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-white bg-primary hover:bg-primary-hover rounded-lg transition-colors">
+          View Our Rooms
+        </a>
+        <a href="/contact/" class="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-medium text-primary border border-primary hover:bg-primary/5 rounded-lg transition-colors">
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

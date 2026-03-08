@@ -1,0 +1,11 @@
+{
+  "name": "Pool & Gardens",
+  "slug": "pool-garden",
+  "icon": "sun",
+  "description": "Relax by the swimming pool shaded by century-old trees, or wander through the manicured gardens. The chemical-free vegetable and herb garden supplies our kitchen — feel free to explore and see what's growing.",
+  "duration": "At your leisure",
+  "includes": ["Pool access for all guests", "Garden tours on request", "Sundowner cocktails by the pool"],
+  "images": ["/images/experiences/pool-1.jpg"],
+  "booking_required": false,
+  "featured": false
+}

@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Sarah M.",
+    "source": "TripAdvisor",
+    "rating": 5,
+    "text": "An absolute gem hidden in the tea plantations. The food was exceptional — Italian flavours with a Malawian twist. Flavia is a wonderful host.",
+    "date": "2025-11"
+  },
+  {
+    "name": "James K.",
+    "source": "TripAdvisor",
+    "rating": 5,
+    "text": "The most peaceful place I've stayed in Malawi. Waking up to birdsong and tea garden views was magical. The garden-to-table dinner was a highlight of our trip.",
+    "date": "2025-09"
+  },
+  {
+    "name": "Marta L.",
+    "source": "Google",
+    "rating": 5,
+    "text": "We came for lunch and stayed for the art workshop. What a unique experience. The house has so much character and history.",
+    "date": "2025-12"
+  },
+  {
+    "name": "David & Ruth P.",
+    "source": "TripAdvisor",
+    "rating": 4,
+    "text": "A wonderful weekend escape from Blantyre. The cottage by the pool was perfect. Great food, lovely gardens, and Flavia's art studio was a real bonus.",
+    "date": "2026-01"
+  }
+]

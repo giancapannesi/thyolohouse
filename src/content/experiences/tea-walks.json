@@ -1,0 +1,11 @@
+{
+  "name": "Tea Plantation Walks",
+  "slug": "tea-walks",
+  "icon": "leaf",
+  "description": "Stroll through the lush green rows of the Conforzi Tea Estate, one of Malawi's historic tea-growing properties. Learn about tea cultivation, the estate's century-long history, and enjoy sweeping views of the Thyolo highlands.",
+  "duration": "1-2 hours",
+  "includes": ["Guided walk", "Tea tasting", "Estate history"],
+  "images": ["/images/experiences/tea-walks-1.jpg"],
+  "booking_required": false,
+  "featured": true
+}

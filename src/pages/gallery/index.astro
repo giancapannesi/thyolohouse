@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getGallery, siteInfo } from '../../utils/data';
+
+const gallery = getGallery();
+const categories = ['all', ...new Set(gallery.map((img) => img.category))];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "name": "Photo Gallery — The Thyolo House",
+    "description": "Photos of The Thyolo House, its rooms, restaurant, gardens, and experiences on the Conforzi Tea Estate.",
+    "url": `${siteInfo.url}/gallery/`
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": siteInfo.url },
+      { "@type": "ListItem", "position": 2, "name": "Gallery", "item": `${siteInfo.url}/gallery/` }
+    ]
+  }
+];
+
+const categoryLabels: Record<string, string> = {
+  all: 'All',
+  property: 'Property',
+  rooms: 'Rooms',
+  restaurant: 'Restaurant',
+  grounds: 'Grounds',
+  experiences: 'Experiences',
+};
+---
+
+<BaseLayout
+  title="Photo Gallery"
+  description="Browse photos of The Thyolo House — the colonial main house, rooms, Italian fusion restaurant, swimming pool, tea gardens, and indigenous forest on the Conforzi Estate."
+  jsonLd={jsonLd}
+>
+
+  <!-- Page Header -->
+  <section class="py-16 md:py-24 bg-card border-b border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold text-text mb-6" style="font-family: var(--font-heading);">Photo Gallery</h1>
+      <p class="text-muted text-lg max-w-2xl mx-auto leading-relaxed">
+        A glimpse of life at The Thyolo House and the Conforzi Tea Estate.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filter Buttons -->
+  <section class="py-8 border-b border-border sticky top-16 md:top-20 z-40 bg-bg/95 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap justify-center gap-2">
+        {categories.map((cat) => (
+          <button
+            class="gallery-filter px-4 py-2 text-sm font-medium rounded-full border border-border transition-colors hover:bg-primary hover:text-white hover:border-primary"
+            data-category={cat}
+          >
+            {categoryLabels[cat] || cat}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4" id="gallery-grid">
+        {gallery.map((img, i) => (
+          <div
+            class="gallery-item break-inside-avoid bg-card rounded-xl border border-border overflow-hidden hover:shadow-lg transition-shadow"
+            data-category={img.category}
+          >
+            <div class={`${i % 3 === 0 ? 'aspect-[4/3]' : i % 3 === 1 ? 'aspect-square' : 'aspect-[3/4]'} bg-primary/10 flex items-center justify-center text-muted`}>
+              <svg class="w-12 h-12 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" /></svg>
+            </div>
+            <div class="p-3">
+              <p class="text-sm text-muted leading-snug">{img.alt}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const buttons = document.querySelectorAll('.gallery-filter');
+      const items = document.querySelectorAll('.gallery-item');
+
+      // Set initial active state
+      const allBtn = document.querySelector('[data-category="all"]');
+      if (allBtn) {
+        allBtn.classList.add('bg-primary', 'text-white', 'border-primary');
+      }
+
+      buttons.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const category = btn.getAttribute('data-category');
+
+          // Update button styles
+          buttons.forEach((b) => {
+            b.classList.remove('bg-primary', 'text-white', 'border-primary');
+          });
+          btn.classList.add('bg-primary', 'text-white', 'border-primary');
+
+          // Filter items
+          items.forEach((item) => {
+            const itemCat = item.getAttribute('data-category');
+            if (category === 'all' || itemCat === category) {
+              (item as HTMLElement).style.display = '';
+            } else {
+              (item as HTMLElement).style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+
+</BaseLayout>

@@ -1,0 +1,13 @@
+{
+  "name": "The Forest Cottage",
+  "slug": "forest-cottage",
+  "type": "cottage",
+  "location": "poolside",
+  "description": "Tucked away near the indigenous forest edge, this cottage offers the most tranquil setting on the estate. Fall asleep to the sounds of nature and wake to birdsong and dappled morning light.",
+  "amenities": ["en-suite bathroom", "forest view", "private entrance", "mosquito nets", "ceiling fan", "outdoor seating"],
+  "capacity": 2,
+  "images": ["/images/rooms/forest-cottage-1.jpg"],
+  "board_options": ["self-catering", "half-board", "full-board"],
+  "price_from": null,
+  "featured": true
+}

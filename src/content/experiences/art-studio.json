@@ -1,0 +1,11 @@
+{
+  "name": "Art Studio & Workshops",
+  "slug": "art-studio",
+  "icon": "palette",
+  "description": "Join resident artist Flavia Conforzi in her on-site studio for hands-on creative workshops. Explore painting, mixed media, and other techniques in a relaxed, inspiring setting surrounded by the natural beauty of the tea estate.",
+  "duration": "2-3 hours",
+  "includes": ["All materials provided", "Personal instruction from Flavia", "Tea/coffee during session"],
+  "images": ["/images/experiences/art-studio-1.jpg"],
+  "booking_required": true,
+  "featured": true
+}

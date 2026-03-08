@@ -1,0 +1,173 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getAllRooms, getRoomBySlug, siteInfo } from '../../utils/data';
+import type { Room } from '../../utils/data';
+
+export function getStaticPaths() {
+  const rooms = getAllRooms();
+  return rooms.map((room) => ({
+    params: { slug: room.slug },
+    props: { room },
+  }));
+}
+
+interface Props {
+  room: Room;
+}
+
+const { room } = Astro.props;
+const allRooms = getAllRooms();
+const otherRooms = allRooms.filter((r) => r.slug !== room.slug);
+
+const whatsappBook = `https://wa.me/${siteInfo.whatsapp}?text=${encodeURIComponent(`Hello! I'd like to book ${room.name} at The Thyolo House. Could you let me know availability?`)}`;
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "HotelRoom",
+    "name": room.name,
+    "description": room.description,
+    "url": `${siteInfo.url}/rooms/${room.slug}/`,
+    "occupancy": {
+      "@type": "QuantitativeValue",
+      "value": room.capacity
+    },
+    "amenityFeature": room.amenities.map((a) => ({
+      "@type": "LocationFeatureSpecification",
+      "name": a,
+      "value": true
+    })),
+    "containedInPlace": {
+      "@type": "LodgingBusiness",
+      "name": siteInfo.name,
+      "url": siteInfo.url
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": siteInfo.url },
+      { "@type": "ListItem", "position": 2, "name": "Rooms", "item": `${siteInfo.url}/rooms/` },
+      { "@type": "ListItem", "position": 3, "name": room.name, "item": `${siteInfo.url}/rooms/${room.slug}/` }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title={room.name}
+  description={room.description}
+  jsonLd={jsonLd}
+>
+
+  <!-- Room Hero -->
+  <section class="relative">
+    <div class="aspect-[21/9] bg-gradient-to-br from-primary/20 via-primary/10 to-accent/5 flex items-center justify-center text-muted">
+      <svg class="w-20 h-20 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" /></svg>
+    </div>
+  </section>
+
+  <!-- Room Details -->
+  <section class="py-12 md:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Breadcrumbs -->
+      <nav class="flex items-center gap-2 text-sm text-muted mb-8">
+        <a href="/" class="hover:text-text transition-colors">Home</a>
+        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        <a href="/rooms/" class="hover:text-text transition-colors">Rooms</a>
+        <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        <span class="text-text">{room.name}</span>
+      </nav>
+
+      <!-- Room Title & Type -->
+      <div class="flex items-center gap-3 mb-4">
+        <span class="inline-block text-xs font-medium uppercase tracking-wider text-accent bg-accent/10 px-2.5 py-1 rounded">
+          {room.type}
+        </span>
+        <span class="text-sm text-muted">
+          {room.location === 'main_house' ? 'Main House' : 'Poolside'} &middot; Sleeps {room.capacity}
+        </span>
+      </div>
+
+      <h1 class="text-3xl md:text-5xl font-bold text-text mb-8" style="font-family: var(--font-heading);">
+        {room.name}
+      </h1>
+
+      <!-- Description -->
+      <p class="text-lg text-muted leading-relaxed mb-12">
+        {room.description}
+      </p>
+
+      <!-- Amenities Grid -->
+      <div class="mb-12">
+        <h2 class="text-xl font-bold text-text mb-6" style="font-family: var(--font-heading);">Amenities</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {room.amenities.map((amenity) => (
+            <div class="flex items-center gap-3 bg-card border border-border rounded-lg p-4">
+              <svg class="w-5 h-5 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>
+              <span class="text-sm text-text capitalize">{amenity}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Board Options -->
+      <div class="mb-12">
+        <h2 class="text-xl font-bold text-text mb-6" style="font-family: var(--font-heading);">Board Options</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {room.board_options.map((option) => (
+            <div class="bg-card border border-border rounded-lg p-6 text-center">
+              <p class="font-semibold text-text capitalize mb-1">{option.replace('-', ' ')}</p>
+              <p class="text-xs text-muted">
+                {option === 'self-catering' && 'Room only — use the shared kitchen facilities'}
+                {option === 'half-board' && 'Room with breakfast and dinner included'}
+                {option === 'full-board' && 'Room with all meals included'}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- WhatsApp Booking CTA -->
+      <div class="bg-primary/5 border border-primary/20 rounded-xl p-8 text-center mb-12">
+        <h2 class="text-2xl font-bold text-text mb-3" style="font-family: var(--font-heading);">Book {room.name}</h2>
+        <p class="text-muted mb-6">Contact us on WhatsApp to check availability and make a reservation.</p>
+        <a
+          href={whatsappBook}
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-3 px-8 py-4 text-lg font-semibold text-white bg-primary hover:bg-primary-hover rounded-lg transition-colors shadow-lg"
+        >
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Book on WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Other Rooms -->
+  <section class="py-16 bg-card border-t border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-2xl md:text-3xl font-bold text-text mb-8 text-center" style="font-family: var(--font-heading);">Other Rooms</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {otherRooms.map((r) => (
+          <a href={`/rooms/${r.slug}/`} class="group bg-bg rounded-xl border border-border overflow-hidden hover:shadow-lg transition-shadow">
+            <div class="aspect-video bg-primary/10 flex items-center justify-center text-muted">
+              <svg class="w-10 h-10 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" /></svg>
+            </div>
+            <div class="p-4">
+              <span class="inline-block text-xs font-medium uppercase tracking-wider text-accent bg-accent/10 px-2 py-0.5 rounded mb-2">
+                {r.type}
+              </span>
+              <h3 class="font-bold text-text group-hover:text-primary transition-colors text-sm" style="font-family: var(--font-heading);">{r.name}</h3>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

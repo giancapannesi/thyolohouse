@@ -1,0 +1,44 @@
+@import "tailwindcss";
+@import "@fontsource/inter/latin-400.css";
+@import "@fontsource/inter/latin-500.css";
+@import "@fontsource/inter/latin-600.css";
+@import "@fontsource/playfair-display/latin-400.css";
+@import "@fontsource/playfair-display/latin-600.css";
+@import "@fontsource/playfair-display/latin-700.css";
+
+@theme {
+  --color-bg: #FAF7F2;
+  --color-card: #FFFFFF;
+  --color-card-hover: #F5F0E8;
+  --color-border: #E8E0D4;
+  --color-text: #2C1810;
+  --color-muted: #8B7355;
+  --color-primary: #2D5016;
+  --color-primary-hover: #1F3A0F;
+  --color-accent: #B8860B;
+  --color-accent-hover: #9A7209;
+  --color-positive: #2D5016;
+  --color-negative: #8B2500;
+  --color-hero-overlay: rgba(44, 24, 16, 0.45);
+  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+}
+
+::selection {
+  background-color: var(--color-primary);
+  color: white;
+}

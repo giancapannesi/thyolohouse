@@ -1,0 +1,14 @@
+[
+  { "src": "/images/gallery/main-house.jpg", "alt": "The Thyolo House main colonial building surrounded by gardens", "category": "property" },
+  { "src": "/images/gallery/tea-gardens.jpg", "alt": "Rows of tea plants on the Conforzi Estate with morning mist", "category": "grounds" },
+  { "src": "/images/gallery/restaurant-interior.jpg", "alt": "The restaurant wing with rustic-elegant dining setup", "category": "restaurant" },
+  { "src": "/images/gallery/pool-area.jpg", "alt": "Swimming pool shaded by century-old trees", "category": "grounds" },
+  { "src": "/images/gallery/garden-produce.jpg", "alt": "Fresh herbs and vegetables from the chemical-free garden", "category": "restaurant" },
+  { "src": "/images/gallery/art-studio.jpg", "alt": "Flavia's art studio with paintings and creative materials", "category": "experiences" },
+  { "src": "/images/gallery/suite-interior.jpg", "alt": "Whitewashed suite interior with colonial furnishings", "category": "rooms" },
+  { "src": "/images/gallery/forest-path.jpg", "alt": "Trail through the indigenous forest bordering the estate", "category": "grounds" },
+  { "src": "/images/gallery/plated-dish.jpg", "alt": "Beautifully plated Italian fusion dish from our kitchen", "category": "restaurant" },
+  { "src": "/images/gallery/sundowner.jpg", "alt": "Cocktails by the pool at golden hour", "category": "restaurant" },
+  { "src": "/images/gallery/cottage-exterior.jpg", "alt": "The pool cottage with private entrance and garden", "category": "rooms" },
+  { "src": "/images/gallery/breakfast-table.jpg", "alt": "Fresh breakfast spread on the veranda overlooking the garden", "category": "restaurant" }
+]

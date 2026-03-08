@@ -1,0 +1,13 @@
+{
+  "name": "The Pool Cottage",
+  "slug": "pool-cottage",
+  "type": "cottage",
+  "location": "poolside",
+  "description": "A private cottage nestled by the swimming pool, offering the perfect blend of seclusion and comfort. Step out your door to the pool deck, surrounded by tropical gardens and century-old trees.",
+  "amenities": ["en-suite bathroom", "pool access", "private entrance", "mosquito nets", "ceiling fan", "kitchenette", "outdoor seating"],
+  "capacity": 2,
+  "images": ["/images/rooms/pool-cottage-1.jpg"],
+  "board_options": ["self-catering", "half-board", "full-board"],
+  "price_from": null,
+  "featured": true
+}
