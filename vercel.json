@@ -1,4 +1,15 @@
 {
+  "redirects": [
+    { "source": "/Restaurant.html", "destination": "/restaurant/", "statusCode": 301 },
+    { "source": "/restaurant.html", "destination": "/restaurant/", "statusCode": 301 },
+    { "source": "/Contact.html", "destination": "/contact/", "statusCode": 301 },
+    { "source": "/contact.html", "destination": "/contact/", "statusCode": 301 },
+    { "source": "/Photo-Gallery.html", "destination": "/gallery/", "statusCode": 301 },
+    { "source": "/photo-gallery.html", "destination": "/gallery/", "statusCode": 301 },
+    { "source": "/Photo-Gallery", "destination": "/gallery/", "statusCode": 301 },
+    { "source": "/index.html", "destination": "/", "statusCode": 301 },
+    { "source": "/Home.html", "destination": "/", "statusCode": 301 }
+  ],
   "headers": [
     {
       "source": "/(.*)",
