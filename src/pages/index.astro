@@ -1,11 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getFeaturedRooms, getFeaturedExperiences, getTestimonials, getMenu, siteInfo } from '../utils/data';
+import { getFeaturedRooms, getFeaturedExperiences, getTestimonials, siteInfo } from '../utils/data';
 
 const rooms = getFeaturedRooms();
 const experiences = getFeaturedExperiences();
 const testimonials = getTestimonials();
-const menu = getMenu();
 
 const whatsappBook = `https://wa.me/${siteInfo.whatsapp}?text=${encodeURIComponent("Hello! I'd like to enquire about availability at The Thyolo House.")}`;
 
@@ -175,24 +174,8 @@ const jsonLd = [
             Many ingredients come straight from our chemical-free garden. Coffees and teas are from the neighbouring estates. Every meal is a quiet celebration of place.
           </p>
 
-          <!-- Sample dishes -->
-          <div class="mt-10 space-y-4 border-t border-border pt-8">
-            {menu.categories.slice(1, 2).flatMap(cat => cat.items.slice(0, 3)).map(item => (
-              <div class="flex items-baseline justify-between">
-                <div>
-                  <span class="text-text font-medium" style="font-family: var(--font-heading); font-size: 1.125rem;">{item.name}</span>
-                  {item.dietary.length > 0 && (
-                    <span class="text-xs text-accent ml-2">{item.dietary.map(d => d === 'vegetarian' ? 'V' : d === 'vegan' ? 'VG' : 'GF').join(' ')}</span>
-                  )}
-                </div>
-                <span class="border-b border-dotted border-border flex-1 mx-3"></span>
-                <span class="text-muted text-sm italic" style="font-family: var(--font-heading);">{item.description.slice(0, 40)}...</span>
-              </div>
-            ))}
-          </div>
-
           <a href="/restaurant/" class="inline-flex items-center gap-2 label-caps text-primary hover:text-primary-hover transition-colors mt-8">
-            Full Menu
+            Our Restaurant
             <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
           </a>
         </div>
