@@ -30,49 +30,61 @@ const jsonLd = [
 >
 
   <!-- Page Header -->
-  <section class="py-16 md:py-24 bg-card border-b border-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold text-text mb-6" style="font-family: var(--font-heading);">Journal</h1>
-      <p class="text-muted text-lg max-w-2xl mx-auto leading-relaxed">
+  <section class="py-20 md:py-32">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-up">
+      <p class="label-caps mb-6">Stories & Reflections</p>
+      <h1 class="text-5xl md:text-7xl text-text mb-8" style="font-family: var(--font-heading); font-weight: 300;">
+        Journal
+      </h1>
+      <p class="text-muted text-lg max-w-2xl mx-auto leading-relaxed" style="font-weight: 300;">
         Stories, recipes, and reflections from life on the Conforzi Tea Estate.
       </p>
     </div>
   </section>
 
-  <!-- Blog Posts Grid -->
-  <section class="py-16 md:py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="ornament max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">&#10038;</div>
+
+  <!-- Blog Posts -->
+  <section class="py-20 md:py-32">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
       {posts.length > 0 ? (
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map((post) => (
-            <a href={`/blog/${post.slug}/`} class="group bg-card rounded-xl border border-border overflow-hidden hover:shadow-lg transition-shadow">
-              <div class="aspect-video bg-primary/10 flex items-center justify-center text-muted">
-                <svg class="w-12 h-12 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" /></svg>
+        <div class="space-y-16">
+          {posts.map((post, i) => (
+            <a href={`/blog/${post.slug}/`} class="group block">
+              <div class={`grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center`}>
+
+                <!-- Image -->
+                <div class={i % 2 === 1 ? 'lg:order-2' : ''}>
+                  <div class="img-placeholder aspect-[4/3]"></div>
+                </div>
+
+                <!-- Text -->
+                <div class={i % 2 === 1 ? 'lg:order-1' : ''}>
+                  <p class="label-caps mb-4">
+                    {new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
+                  </p>
+                  <h2 class="text-2xl md:text-3xl text-text group-hover:text-primary transition-colors mb-4" style="font-family: var(--font-heading); font-weight: 300;">
+                    {post.title}
+                  </h2>
+                  <p class="text-muted leading-relaxed mb-6 line-clamp-3" style="font-weight: 300;">{post.excerpt}</p>
+                  <span class="text-text text-sm border-b border-text pb-0.5 group-hover:text-primary group-hover:border-primary transition-colors" style="font-weight: 400;">
+                    Read More
+                  </span>
+                </div>
               </div>
-              <div class="p-6">
-                <time class="text-xs text-muted uppercase tracking-wider">
-                  {new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}
-                </time>
-                <h2 class="text-xl font-bold text-text group-hover:text-primary transition-colors mt-2 mb-3" style="font-family: var(--font-heading);">
-                  {post.title}
-                </h2>
-                <p class="text-muted text-sm leading-relaxed line-clamp-3">{post.excerpt}</p>
-                <span class="inline-flex items-center gap-1 text-primary font-medium text-sm mt-4 group-hover:gap-2 transition-all">
-                  Read More
-                  <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
-                </span>
-              </div>
+
+              {i < posts.length - 1 && (
+                <hr class="editorial mt-16" />
+              )}
             </a>
           ))}
         </div>
       ) : (
-        <div class="text-center py-16">
-          <div class="w-20 h-20 mx-auto mb-6 bg-primary/10 rounded-full flex items-center justify-center text-muted">
-            <svg class="w-10 h-10 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" /></svg>
-          </div>
-          <h2 class="text-2xl font-bold text-text mb-3" style="font-family: var(--font-heading);">No posts yet</h2>
-          <p class="text-muted text-lg">Check back soon — we are working on stories from the estate.</p>
+        <div class="text-center py-20">
+          <p class="label-caps mb-6 text-primary">Coming Soon</p>
+          <h2 class="text-3xl md:text-4xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 300;">No posts yet</h2>
+          <p class="text-muted text-lg" style="font-weight: 300;">Check back soon — we are working on stories from the estate.</p>
         </div>
       )}
 

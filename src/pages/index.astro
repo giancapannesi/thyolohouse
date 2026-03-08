@@ -1,12 +1,28 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getFeaturedRooms, getFeaturedExperiences, getTestimonials, siteInfo } from '../utils/data';
+import { getFeaturedRooms, getFeaturedExperiences, getTestimonials, getMenu, siteInfo } from '../utils/data';
 
 const rooms = getFeaturedRooms();
 const experiences = getFeaturedExperiences();
 const testimonials = getTestimonials();
+const menu = getMenu();
 
 const whatsappBook = `https://wa.me/${siteInfo.whatsapp}?text=${encodeURIComponent("Hello! I'd like to enquire about availability at The Thyolo House.")}`;
+
+const roomImages: Record<string, string> = {
+  'heritage-suite': '/images/rooms/heritage-suite.jpg',
+  'garden-suite': '/images/rooms/tree-mural.jpg',
+  'tea-estate-suite': '/images/rooms/heritage-suite.jpg',
+  'forest-cottage': '/images/estate/main-house.jpg',
+  'pool-cottage': '/images/rooms/pool-cottage-room.jpg',
+};
+
+const experienceImages: Record<string, string> = {
+  'pool-garden': '/images/estate/pool-area.jpg',
+  'art-studio': '/images/gallery/art-african-modern.jpg',
+  'tea-walks': '/images/estate/garden-view.jpg',
+  'forest-trails': '/images/estate/forest-view.jpg',
+};
 
 const jsonLd = [
   {
@@ -17,17 +33,8 @@ const jsonLd = [
     "url": siteInfo.url,
     "telephone": siteInfo.phone,
     "email": siteInfo.email,
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Conforzi Tea Estate",
-      "addressLocality": "Thyolo",
-      "addressCountry": "MW"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": siteInfo.geo.lat,
-      "longitude": siteInfo.geo.lng
-    },
+    "address": { "@type": "PostalAddress", "streetAddress": "Conforzi Tea Estate", "addressLocality": "Thyolo", "addressCountry": "MW" },
+    "geo": { "@type": "GeoCoordinates", "latitude": siteInfo.geo.lat, "longitude": siteInfo.geo.lng },
     "image": `${siteInfo.url}/images/og-default.jpg`,
     "priceRange": "$$",
     "starRating": { "@type": "Rating", "ratingValue": "5" }
@@ -39,208 +46,271 @@ const jsonLd = [
     "description": "Italian fusion cuisine with garden-to-table ingredients on the Conforzi Tea Estate.",
     "url": `${siteInfo.url}/restaurant/`,
     "servesCuisine": ["Italian", "Fusion"],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "Conforzi Tea Estate",
-      "addressLocality": "Thyolo",
-      "addressCountry": "MW"
-    }
+    "address": { "@type": "PostalAddress", "streetAddress": "Conforzi Tea Estate", "addressLocality": "Thyolo", "addressCountry": "MW" }
   },
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Home", "item": siteInfo.url }
-    ]
+    "itemListElement": [{ "@type": "ListItem", "position": 1, "name": "Home", "item": siteInfo.url }]
   }
 ];
 ---
 
 <BaseLayout
-  title="The Thyolo House — Boutique Hotel & Restaurant on Conforzi Tea Estate, Thyolo, Malawi"
+  title="The Thyolo House — A Retreat on Malawi's Conforzi Tea Estate"
   description={siteInfo.description}
   jsonLd={jsonLd}
 >
 
-  <!-- Hero Section -->
-  <section class="relative min-h-[70vh] md:min-h-[85vh] flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 bg-gradient-to-br from-primary/30 via-primary/20 to-accent/10"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-text/40 via-transparent to-transparent"></div>
-    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
-      <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-lg" style="font-family: var(--font-heading);">
-        The Thyolo House
-      </h1>
-      <p class="text-lg sm:text-xl md:text-2xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed drop-shadow">
-        A boutique retreat on Malawi's historic Conforzi Tea Estate
+  <!-- Hero — full bleed, cinematic -->
+  <section class="relative min-h-[85vh] md:min-h-[92vh] flex items-end overflow-hidden grain">
+    <div class="absolute inset-0" style="background-image: url('/images/estate/garden-walkway.jpg'); background-size: cover; background-position: center;"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-charcoal/70 via-charcoal/20 to-transparent"></div>
+    <div class="relative z-10 w-full pb-16 md:pb-24 px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <p class="label-caps text-linen/60 mb-4 fade-up">Conforzi Tea Estate &middot; Thyolo, Malawi</p>
+        <h1 class="text-5xl sm:text-6xl md:text-8xl text-linen mb-6 fade-up fade-up-delay-1" style="font-family: var(--font-heading); font-weight: 300; line-height: 0.95;">
+          A place apart
+        </h1>
+        <p class="text-lg md:text-xl text-linen/75 max-w-xl mb-10 fade-up fade-up-delay-2" style="font-weight: 300; line-height: 1.6;">
+          Five rooms on a century-old tea estate. Italian fusion from our garden. Art, forest, silence.
+        </p>
+        <div class="flex flex-wrap gap-4 fade-up fade-up-delay-3">
+          <a href={whatsappBook} target="_blank" rel="noopener"
+            class="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-semibold text-charcoal bg-linen hover:bg-white transition-colors tracking-wide uppercase">
+            Enquire
+          </a>
+          <a href="/rooms/"
+            class="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-semibold text-linen border border-linen/40 hover:bg-linen/10 transition-colors tracking-wide uppercase">
+            Our Rooms
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Introduction — editorial text block -->
+  <section class="py-20 md:py-32">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <div class="ornament mb-10">
+        <svg class="w-3 h-3 flex-shrink-0" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L10 6H16L11 9.5L13 16L8 12L3 16L5 9.5L0 6H6L8 0Z"/></svg>
+      </div>
+      <p class="text-2xl md:text-3xl lg:text-4xl text-text leading-snug mb-8" style="font-family: var(--font-heading); font-weight: 300;">
+        Built as a farmhouse on the Conforzi tobacco and tea estates in the early 1900s, The Thyolo House has been transformed into an intimate retreat where history, art, and nature converge.
       </p>
-      <a
-        href={whatsappBook}
-        target="_blank"
-        rel="noopener"
-        class="inline-flex items-center gap-3 px-8 py-4 text-lg font-semibold text-white bg-primary hover:bg-primary-hover rounded-lg transition-colors shadow-lg hover:shadow-xl"
-      >
-        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Book Your Stay
-      </a>
+      <p class="text-muted text-base max-w-xl mx-auto">
+        Surrounded by tea gardens on one side and indigenous forest on the other, it is a place to slow down, eat well, and discover something unexpected.
+      </p>
     </div>
   </section>
 
-  <!-- Rooms Preview -->
-  <section class="py-16 md:py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-text mb-4" style="font-family: var(--font-heading);">Our Rooms</h2>
-        <p class="text-muted text-lg max-w-2xl mx-auto">Five unique rooms — three suites in the original colonial house and two private cottages by the pool.</p>
+  <!-- Rooms — asymmetric editorial layout -->
+  <section class="pb-20 md:pb-32">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+      <div class="flex items-end justify-between mb-16">
+        <div>
+          <p class="label-caps text-primary mb-3">Accommodation</p>
+          <h2 class="text-4xl md:text-5xl lg:text-6xl text-text" style="font-family: var(--font-heading); font-weight: 300;">
+            Rooms &<br />Cottages
+          </h2>
+        </div>
+        <a href="/rooms/" class="hidden md:inline-flex items-center gap-2 label-caps text-primary hover:text-primary-hover transition-colors">
+          View all
+          <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+        </a>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {rooms.slice(0, 3).map((room) => (
-          <a href={`/rooms/${room.slug}/`} class="group bg-card rounded-xl border border-border overflow-hidden hover:shadow-lg transition-shadow">
-            <div class="aspect-video bg-primary/10 flex items-center justify-center text-muted">
-              <svg class="w-12 h-12 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" /></svg>
+
+      <!-- Room grid: 2 large + 1 tall -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-5">
+        {rooms.slice(0, 2).map((room, i) => (
+          <a href={`/rooms/${room.slug}/`} class={`group ${i === 0 ? 'md:col-span-7' : 'md:col-span-5'}`}>
+            <div class="aspect-[4/3] mb-4 overflow-hidden">
+              <img src={roomImages[room.slug] || '/images/rooms/heritage-suite.jpg'} alt={`${room.name} at The Thyolo House`} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
             </div>
-            <div class="p-6">
-              <div class="flex items-center gap-2 mb-2">
-                <h3 class="text-xl font-bold text-text group-hover:text-primary transition-colors" style="font-family: var(--font-heading);">{room.name}</h3>
+            <div class="flex items-baseline justify-between">
+              <h3 class="text-xl md:text-2xl text-text group-hover:text-primary transition-colors" style="font-family: var(--font-heading); font-weight: 400;">
+                {room.name}
+              </h3>
+              <span class="label-caps text-muted/60">{room.type}</span>
+            </div>
+            <p class="text-muted text-sm mt-2 max-w-md">{room.description.slice(0, 100)}...</p>
+          </a>
+        ))}
+        {rooms.slice(2, 4).map((room, i) => (
+          <a href={`/rooms/${room.slug}/`} class={`group ${i === 0 ? 'md:col-span-5' : 'md:col-span-7'}`}>
+            <div class="aspect-[4/3] mb-4 overflow-hidden">
+              <img src={roomImages[room.slug] || '/images/rooms/heritage-suite.jpg'} alt={`${room.name} at The Thyolo House`} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+            </div>
+            <div class="flex items-baseline justify-between">
+              <h3 class="text-xl md:text-2xl text-text group-hover:text-primary transition-colors" style="font-family: var(--font-heading); font-weight: 400;">
+                {room.name}
+              </h3>
+              <span class="label-caps text-muted/60">{room.type}</span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="text-center mt-10 md:hidden">
+        <a href="/rooms/" class="label-caps text-primary hover:text-primary-hover transition-colors">
+          View All Rooms &rarr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Restaurant — editorial split -->
+  <section class="py-20 md:py-32 bg-card relative grain">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div class="order-2 lg:order-1">
+          <p class="label-caps text-primary mb-3">Restaurant</p>
+          <h2 class="text-4xl md:text-5xl text-text mb-8" style="font-family: var(--font-heading); font-weight: 300;">
+            Garden to Table
+          </h2>
+          <p class="pull-quote mb-8">
+            Our kitchen draws from the Italian culinary tradition, blending it with Thai, Indian, and continental flavours.
+          </p>
+          <p class="text-muted mb-4">
+            Many ingredients come straight from our chemical-free garden. Coffees and teas are from the neighbouring estates. Every meal is a quiet celebration of place.
+          </p>
+
+          <!-- Sample dishes -->
+          <div class="mt-10 space-y-4 border-t border-border pt-8">
+            {menu.categories.slice(1, 2).flatMap(cat => cat.items.slice(0, 3)).map(item => (
+              <div class="flex items-baseline justify-between">
+                <div>
+                  <span class="text-text font-medium" style="font-family: var(--font-heading); font-size: 1.125rem;">{item.name}</span>
+                  {item.dietary.length > 0 && (
+                    <span class="text-xs text-accent ml-2">{item.dietary.map(d => d === 'vegetarian' ? 'V' : d === 'vegan' ? 'VG' : 'GF').join(' ')}</span>
+                  )}
+                </div>
+                <span class="border-b border-dotted border-border flex-1 mx-3"></span>
+                <span class="text-muted text-sm italic" style="font-family: var(--font-heading);">{item.description.slice(0, 40)}...</span>
               </div>
-              <span class="inline-block text-xs font-medium uppercase tracking-wider text-accent bg-accent/10 px-2 py-1 rounded mb-3">
-                {room.type}
-              </span>
-              <p class="text-muted text-sm leading-relaxed line-clamp-2">{room.description.slice(0, 120)}...</p>
-              <span class="inline-flex items-center gap-1 text-primary font-medium text-sm mt-4 group-hover:gap-2 transition-all">
-                View Room
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
-              </span>
-            </div>
+            ))}
+          </div>
+
+          <a href="/restaurant/" class="inline-flex items-center gap-2 label-caps text-primary hover:text-primary-hover transition-colors mt-8">
+            Full Menu
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
           </a>
+        </div>
+        <div class="order-1 lg:order-2">
+          <div class="aspect-[3/4] md:aspect-[4/5] overflow-hidden">
+            <img src="/images/food/cotoletta-salad.jpg" alt="Cotoletta milanese with fresh garden salad at The Thyolo House restaurant" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiences — horizontal scroll feel -->
+  <section class="py-20 md:py-32">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="label-caps text-primary mb-3">Experiences</p>
+        <h2 class="text-4xl md:text-5xl lg:text-6xl text-text" style="font-family: var(--font-heading); font-weight: 300;">
+          Things to do
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-5">
+        {experiences.map((exp, i) => (
+          <div class={`fade-up fade-up-delay-${i + 1}`}>
+            <div class="aspect-[3/4] mb-5 overflow-hidden">
+              <img src={experienceImages[exp.slug] || '/images/estate/garden-view.jpg'} alt={`${exp.name} experience at The Thyolo House`} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+            </div>
+            <p class="label-caps text-primary mb-2">{exp.duration}</p>
+            <h3 class="text-2xl text-text mb-3" style="font-family: var(--font-heading); font-weight: 400;">
+              {exp.name}
+            </h3>
+            <p class="text-muted text-sm leading-relaxed">{exp.description.slice(0, 150)}...</p>
+            {exp.booking_required && (
+              <p class="text-xs text-primary mt-3 italic" style="font-family: var(--font-heading);">Booking required</p>
+            )}
+          </div>
         ))}
       </div>
-      <div class="text-center mt-10">
-        <a href="/rooms/" class="inline-flex items-center gap-2 text-primary hover:text-primary-hover font-medium transition-colors">
-          View All Rooms
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+
+      <div class="text-center mt-12">
+        <a href="/experiences/" class="label-caps text-primary hover:text-primary-hover transition-colors">
+          All Experiences &rarr;
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Restaurant Teaser -->
-  <section class="py-16 md:py-24 bg-card border-y border-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+  <!-- Testimonial — single pull quote -->
+  <section class="py-20 md:py-28 bg-card relative grain">
+    <div class="max-w-3xl mx-auto px-6 text-center relative z-10">
+      <svg class="w-10 h-10 mx-auto mb-8 text-primary/20" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+      </svg>
+      {testimonials.slice(0, 1).map(t => (
         <div>
-          <h2 class="text-3xl md:text-4xl font-bold text-text mb-6" style="font-family: var(--font-heading);">Garden to Table</h2>
-          <p class="text-muted text-lg leading-relaxed mb-4">
-            Our kitchen draws from the Italian culinary tradition, blending it with Thai, Indian, and continental flavours. Many ingredients come straight from our chemical-free garden.
+          <p class="text-2xl md:text-3xl lg:text-4xl text-text leading-snug mb-8" style="font-family: var(--font-heading); font-weight: 300; font-style: italic;">
+            {t.text}
           </p>
-          <p class="text-muted leading-relaxed mb-8">
-            From freshly made pasta and bruschetta to Lake Malawi chambo and tropical fruit desserts, every meal at The Thyolo House is a celebration of flavour and place. Our teas and coffees are sourced from the neighbouring estates.
+          <div class="ornament mb-6">
+            <svg class="w-2 h-2 flex-shrink-0" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0L10 6H16L11 9.5L13 16L8 12L3 16L5 9.5L0 6H6L8 0Z"/></svg>
+          </div>
+          <p class="label-caps">{t.name} &middot; {t.source}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Directions -->
+  <section class="py-20 md:py-32">
+    <div class="max-w-6xl mx-auto px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div>
+          <p class="label-caps text-primary mb-3">Getting Here</p>
+          <h2 class="text-4xl md:text-5xl text-text mb-8" style="font-family: var(--font-heading); font-weight: 300;">
+            Find Us
+          </h2>
+          <p class="text-muted text-lg mb-4" style="font-weight: 300;">
+            The Thyolo House sits on the historic Conforzi Tea Estate in the Thyolo highlands of southern Malawi.
           </p>
-          <a href="/restaurant/" class="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-white bg-primary hover:bg-primary-hover rounded-lg transition-colors">
-            View Our Menu
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+          <p class="text-muted mb-8">
+            Just 20 minutes from Limbe and 30 minutes from Blantyre by road. Follow the main Thyolo road, then signs to the Conforzi Estate.
+          </p>
+          <div class="flex items-center gap-4 p-5 bg-card border border-border">
+            <div class="w-10 h-10 bg-primary/10 flex items-center justify-center text-primary flex-shrink-0">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            </div>
+            <div>
+              <p class="text-text font-medium text-sm">From Blantyre/Limbe</p>
+              <p class="text-muted text-sm">~20-30 minutes by car</p>
+            </div>
+          </div>
+          <a href="/contact/" class="inline-flex items-center gap-2 label-caps text-primary hover:text-primary-hover transition-colors mt-8">
+            Contact & Directions
+            <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
           </a>
         </div>
-        <div class="aspect-[4/3] bg-primary/10 rounded-xl flex items-center justify-center text-muted">
-          <svg class="w-16 h-16 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" /></svg>
+        <div class="aspect-square overflow-hidden">
+          <img src="/images/estate/directions-map.jpg" alt="Map showing directions to The Thyolo House from Limbe, Malawi" class="w-full h-full object-cover" loading="lazy" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Experiences Preview -->
-  <section class="py-16 md:py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-text mb-4" style="font-family: var(--font-heading);">Experiences</h2>
-        <p class="text-muted text-lg max-w-2xl mx-auto">From tea plantation walks to art workshops with Flavia, there is always something to discover.</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {experiences.map((exp) => (
-          <div class="bg-card rounded-xl border border-border p-8 text-center hover:shadow-lg transition-shadow">
-            <div class="w-14 h-14 mx-auto mb-5 bg-primary/10 rounded-full flex items-center justify-center text-primary">
-              {exp.icon === 'palette' && (
-                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.146 6.32a15.996 15.996 0 00-4.649 4.763m3.42 3.42a6.776 6.776 0 00-3.42-3.42" /></svg>
-              )}
-              {exp.icon === 'leaf' && (
-                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21c-4-4-8-7.5-8-12a8 8 0 0116 0c0 4.5-4 8-8 12z" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 13V7" /></svg>
-              )}
-              {exp.icon === 'trees' && (
-                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" /></svg>
-              )}
-              {exp.icon === 'sun' && (
-                <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" /></svg>
-              )}
-            </div>
-            <h3 class="text-xl font-bold text-text mb-3" style="font-family: var(--font-heading);">{exp.name}</h3>
-            <p class="text-muted text-sm leading-relaxed mb-4">{exp.description.slice(0, 130)}...</p>
-            <p class="text-xs text-accent font-medium">{exp.duration}</p>
-          </div>
-        ))}
-      </div>
-      <div class="text-center mt-10">
-        <a href="/experiences/" class="inline-flex items-center gap-2 text-primary hover:text-primary-hover font-medium transition-colors">
-          All Experiences
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Testimonials -->
-  <section class="py-16 md:py-24 bg-card border-y border-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold text-text mb-4" style="font-family: var(--font-heading);">What Our Guests Say</h2>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {testimonials.slice(0, 3).map((t) => (
-          <div class="bg-bg rounded-xl p-8 border border-border">
-            <div class="flex gap-1 mb-4">
-              {Array.from({ length: t.rating }).map(() => (
-                <svg class="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
-              ))}
-            </div>
-            <p class="text-text leading-relaxed mb-6 italic">"{t.text}"</p>
-            <div class="flex items-center justify-between">
-              <span class="font-semibold text-text text-sm">{t.name}</span>
-              <span class="text-xs text-muted">{t.source}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Directions / Map Teaser -->
-  <section class="py-16 md:py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div>
-          <h2 class="text-3xl md:text-4xl font-bold text-text mb-6" style="font-family: var(--font-heading);">How to Find Us</h2>
-          <p class="text-muted text-lg leading-relaxed mb-4">
-            The Thyolo House is located on the historic Conforzi Tea Estate in Thyolo, southern Malawi.
-          </p>
-          <p class="text-muted leading-relaxed mb-6">
-            Just 20 minutes from Limbe and 30 minutes from Blantyre, the house is easily reached by road. Take the main Thyolo road and follow signs to the Conforzi Tea Estate.
-          </p>
-          <div class="flex items-center gap-3 mb-8">
-            <div class="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center text-accent">
-              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-            </div>
-            <span class="text-text font-medium">~20 minutes from Limbe</span>
-          </div>
-          <a href="/contact/" class="inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-white bg-primary hover:bg-primary-hover rounded-lg transition-colors">
-            Get Directions
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
-          </a>
-        </div>
-        <div class="aspect-[4/3] bg-primary/10 rounded-xl flex items-center justify-center text-muted overflow-hidden">
-          <div class="text-center">
-            <svg class="w-12 h-12 mx-auto mb-3 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
-            <p class="text-sm opacity-60">Conforzi Tea Estate, Thyolo</p>
-          </div>
-        </div>
-      </div>
+  <!-- Final CTA -->
+  <section class="py-20 md:py-28 bg-charcoal text-center relative grain">
+    <div class="max-w-2xl mx-auto px-6 relative z-10">
+      <h2 class="text-4xl md:text-5xl text-linen mb-6" style="font-family: var(--font-heading); font-weight: 300;">
+        Come stay with us
+      </h2>
+      <p class="text-linen/60 mb-10 text-lg" style="font-weight: 300;">
+        Five rooms. One extraordinary estate. Your own quiet corner of Malawi.
+      </p>
+      <a href={whatsappBook} target="_blank" rel="noopener"
+        class="inline-flex items-center gap-3 px-8 py-4 text-sm font-semibold text-charcoal bg-linen hover:bg-white transition-colors tracking-wide uppercase">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Book via WhatsApp
+      </a>
     </div>
   </section>
 

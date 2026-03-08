@@ -41,165 +41,172 @@ const jsonLd = [
 ---
 
 <BaseLayout
-  title="Get in Touch"
-  description="Contact The Thyolo House — WhatsApp, email, phone, and directions to the Conforzi Tea Estate in Thyolo, Malawi. Just 20 minutes from Limbe."
+  title="Find Us & Get in Touch"
+  description="Directions to The Thyolo House from Blantyre and Limbe. Contact us by WhatsApp, email, or phone. Conforzi Tea Estate, Thyolo, Malawi."
   jsonLd={jsonLd}
 >
 
   <!-- Page Header -->
-  <section class="py-16 md:py-24 bg-card border-b border-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold text-text mb-6" style="font-family: var(--font-heading);">Get in Touch</h1>
-      <p class="text-muted text-lg max-w-2xl mx-auto leading-relaxed">
-        We would love to hear from you. Reach out by WhatsApp for the quickest response, or send us an email.
+  <section class="py-20 md:py-28">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-up">
+      <p class="label-caps mb-6">Find Us</p>
+      <h1 class="text-5xl md:text-7xl text-text mb-8" style="font-family: var(--font-heading); font-weight: 300;">
+        How to Get Here
+      </h1>
+      <p class="text-muted text-lg max-w-2xl mx-auto leading-relaxed" style="font-weight: 300;">
+        We're on the Conforzi Tea Estate in Thyolo — approximately 20 minutes from Limbe, just off the main Thyolo road.
       </p>
     </div>
   </section>
 
-  <section class="py-16 md:py-24">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+  <!-- Directions + Map (MOST IMPORTANT SECTION — shown first) -->
+  <section class="pb-20 md:pb-28">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
 
-        <!-- Contact Info -->
+        <!-- Directions -->
         <div>
-          <!-- WhatsApp Primary CTA -->
-          <div class="bg-primary/5 border border-primary/20 rounded-xl p-8 mb-10 text-center">
-            <div class="w-16 h-16 mx-auto mb-4 bg-primary rounded-full flex items-center justify-center">
-              <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            </div>
-            <h2 class="text-xl font-bold text-text mb-2" style="font-family: var(--font-heading);">WhatsApp — Quickest Way</h2>
-            <p class="text-muted text-sm mb-6">For bookings, reservations, and enquiries, WhatsApp is our preferred channel.</p>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener"
-              class="inline-flex items-center gap-3 px-8 py-4 text-lg font-semibold text-white bg-primary hover:bg-primary-hover rounded-lg transition-colors shadow-lg"
-            >
-              <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-              Chat on WhatsApp
-            </a>
+          <h2 class="text-3xl md:text-4xl text-text mb-8" style="font-family: var(--font-heading); font-weight: 300;">
+            Directions from Blantyre / Limbe
+          </h2>
+
+          <ol class="text-muted leading-relaxed space-y-4" style="font-weight: 300;">
+            <li class="flex gap-4">
+              <span class="flex-shrink-0 w-8 h-8 border border-border flex items-center justify-center text-sm text-primary" style="font-weight: 400;">1</span>
+              <span>Drive to Limbe and take the <strong class="text-text">Thyolo road</strong> turnoff</span>
+            </li>
+            <li class="flex gap-4">
+              <span class="flex-shrink-0 w-8 h-8 border border-border flex items-center justify-center text-sm text-primary" style="font-weight: 400;">2</span>
+              <span>Drive towards Thyolo past <strong class="text-text">Chigumula</strong> and <strong class="text-text">12 Miles</strong> (petrol station)</span>
+            </li>
+            <li class="flex gap-4">
+              <span class="flex-shrink-0 w-8 h-8 border border-border flex items-center justify-center text-sm text-primary" style="font-weight: 400;">3</span>
+              <span>Continue to <strong class="text-text">Namingomba</strong> until the second turnoff</span>
+            </li>
+            <li class="flex gap-4">
+              <span class="flex-shrink-0 w-8 h-8 border border-border flex items-center justify-center text-sm text-primary" style="font-weight: 400;">4</span>
+              <span>Directly opposite the second Namingomba Tea Estate sign, look for the large <strong class="text-text">Conforzi Plantations</strong> white and green sign with palm trees on the left</span>
+            </li>
+            <li class="flex gap-4">
+              <span class="flex-shrink-0 w-8 h-8 border border-border flex items-center justify-center text-sm text-primary" style="font-weight: 400;">5</span>
+              <span>Take that turn and <strong class="text-text">stay to the right</strong> — follow the Thyolo House signs to the guest house</span>
+            </li>
+          </ol>
+
+          <div class="mt-8 p-6 bg-card border border-border">
+            <p class="text-text" style="font-weight: 400;">Conforzi Tea Estate, Thyolo, Malawi</p>
+            <p class="text-muted text-sm mt-1" style="font-weight: 300;">Approximately 20 minutes from Limbe · 40 minutes from Blantyre</p>
           </div>
 
-          <!-- Other Contact Methods -->
-          <div class="space-y-6">
-            <!-- Email -->
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent flex-shrink-0">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
-              </div>
-              <div>
-                <h3 class="font-semibold text-text mb-1">Email</h3>
-                <a href={`mailto:${siteInfo.email}`} class="text-primary hover:text-primary-hover transition-colors">{siteInfo.email}</a>
-              </div>
-            </div>
-
-            <!-- Phone -->
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent flex-shrink-0">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
-              </div>
-              <div>
-                <h3 class="font-semibold text-text mb-1">Phone</h3>
-                <a href={`tel:${siteInfo.phone}`} class="text-primary hover:text-primary-hover transition-colors">+265 884 202 040</a>
-              </div>
-            </div>
-
-            <!-- Social -->
-            <div class="flex items-start gap-4">
-              <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent flex-shrink-0">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" /></svg>
-              </div>
-              <div>
-                <h3 class="font-semibold text-text mb-1">Follow Us</h3>
-                <div class="flex gap-4">
-                  <a href={siteInfo.facebook} target="_blank" rel="noopener" class="text-primary hover:text-primary-hover transition-colors text-sm">Facebook</a>
-                  <a href={siteInfo.instagram} target="_blank" rel="noopener" class="text-primary hover:text-primary-hover transition-colors text-sm">Instagram</a>
-                </div>
-              </div>
-            </div>
-
-            <!-- Directions -->
-            <div class="flex items-start gap-4 mt-8 pt-8 border-t border-border">
-              <div class="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center text-accent flex-shrink-0">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>
-              </div>
-              <div>
-                <h3 class="font-semibold text-text mb-2">Directions</h3>
-                <p class="text-muted text-sm leading-relaxed mb-2">
-                  From Blantyre or Limbe, take the main road to Thyolo (~20 minutes). The house is on the Conforzi Tea Estate.
-                </p>
-                <p class="text-muted text-sm leading-relaxed">
-                  Conforzi Tea Estate, Thyolo, Malawi
-                </p>
-              </div>
-            </div>
+          <!-- Static directions map image -->
+          <div class="mt-8 overflow-hidden border border-border">
+            <img src="/images/estate/directions-map.jpg" alt="Map showing the route from Limbe to The Thyolo House" class="w-full object-contain" loading="lazy" />
           </div>
         </div>
 
-        <!-- Contact Form + Map -->
-        <div class="space-y-10">
-
-          <!-- Map -->
-          <div class="rounded-xl overflow-hidden border border-border">
+        <!-- Google Map -->
+        <div>
+          <div class="border border-border overflow-hidden sticky top-24">
             <iframe
-              src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30000!2d${siteInfo.geo.lng}!3d${siteInfo.geo.lat}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTbCsDA0JzAwLjEiUyAzNcKwMDknMDAuMCJF!5e0!3m2!1sen!2smw!4v1`}
+              src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=The+Thyolo+House,Thyolo,Malawi&zoom=13"
               width="100%"
-              height="300"
+              height="500"
               style="border:0;"
               allowfullscreen={true}
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-              title="The Thyolo House location on map"
+              title="The Thyolo House — Conforzi Tea Estate, Thyolo, Malawi"
             ></iframe>
-          </div>
-
-          <!-- Contact Form -->
-          <div class="bg-card border border-border rounded-xl p-8">
-            <h2 class="text-xl font-bold text-text mb-6" style="font-family: var(--font-heading);">Send Us a Message</h2>
-            <form action="#" method="POST" class="space-y-5">
+            <div class="px-5 py-4 bg-card border-t border-border flex items-center justify-between">
               <div>
-                <label for="name" class="block text-sm font-medium text-text mb-1.5">Your Name</label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  required
-                  class="w-full px-4 py-3 bg-bg border border-border rounded-lg text-text text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-                  placeholder="e.g. Sarah Mwale"
-                />
+                <p class="text-text text-sm" style="font-weight: 400;">The Thyolo House</p>
+                <p class="text-muted text-xs" style="font-weight: 300;">Conforzi Tea Estate, Thyolo</p>
               </div>
-              <div>
-                <label for="email" class="block text-sm font-medium text-text mb-1.5">Email Address</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  class="w-full px-4 py-3 bg-bg border border-border rounded-lg text-text text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors"
-                  placeholder="you@example.com"
-                />
-              </div>
-              <div>
-                <label for="message" class="block text-sm font-medium text-text mb-1.5">Message</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows="5"
-                  required
-                  class="w-full px-4 py-3 bg-bg border border-border rounded-lg text-text text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition-colors resize-vertical"
-                  placeholder="Tell us about your plans..."
-                ></textarea>
-              </div>
-              <button
-                type="submit"
-                class="w-full px-6 py-3 text-sm font-medium text-white bg-primary hover:bg-primary-hover rounded-lg transition-colors"
+              <a
+                href="https://www.google.com/maps/dir//The+Thyolo+House,+Thyolo,+Malawi"
+                target="_blank"
+                rel="noopener"
+                class="inline-flex items-center gap-2 px-4 py-2 text-sm bg-charcoal text-linen transition-colors hover:opacity-90"
+                style="font-weight: 400;"
               >
-                Send Message
-              </button>
-            </form>
+                Get Directions
+              </a>
+            </div>
           </div>
-
         </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="ornament max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">&#10038;</div>
+
+  <!-- Contact Details -->
+  <section class="py-20 md:py-28">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="label-caps mb-6">Get in Touch</p>
+        <h2 class="text-3xl md:text-4xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 300;">
+          Contact Us
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+
+        <!-- WhatsApp -->
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener"
+          class="border border-border p-8 text-center hover:border-primary transition-colors group"
+        >
+          <svg class="w-8 h-8 mx-auto mb-4 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <p class="label-caps text-primary mb-2">WhatsApp</p>
+          <p class="text-text text-lg" style="font-weight: 300;">+265 884 202 040</p>
+          <p class="text-muted text-xs mt-2" style="font-weight: 300;">Quickest way to reach us</p>
+        </a>
+
+        <!-- Email -->
+        <a
+          href={`mailto:${siteInfo.email}`}
+          class="border border-border p-8 text-center hover:border-primary transition-colors group"
+        >
+          <svg class="w-8 h-8 mx-auto mb-4 text-muted group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
+          <p class="label-caps mb-2">Email</p>
+          <p class="text-text text-sm" style="font-weight: 300;">{siteInfo.email}</p>
+        </a>
+
+        <!-- Phone -->
+        <a
+          href={`tel:${siteInfo.phone}`}
+          class="border border-border p-8 text-center hover:border-primary transition-colors group"
+        >
+          <svg class="w-8 h-8 mx-auto mb-4 text-muted group-hover:text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+          <p class="label-caps mb-2">Call Us</p>
+          <p class="text-text text-lg" style="font-weight: 300;">+265 884 202 040</p>
+        </a>
+
+      </div>
+
+      <!-- Social Links -->
+      <div class="mt-12 text-center">
+        <p class="label-caps mb-4">Follow Us</p>
+        <div class="flex justify-center gap-8">
+          <a href={siteInfo.facebook} target="_blank" rel="noopener" class="text-muted hover:text-primary transition-colors text-sm" style="font-weight: 300;">Facebook</a>
+          <a href={siteInfo.instagram} target="_blank" rel="noopener" class="text-muted hover:text-primary transition-colors text-sm" style="font-weight: 300;">Instagram</a>
+          <a href={siteInfo.tripadvisor} target="_blank" rel="noopener" class="text-muted hover:text-primary transition-colors text-sm" style="font-weight: 300;">TripAdvisor</a>
+          <a href={siteInfo.google} target="_blank" rel="noopener" class="text-muted hover:text-primary transition-colors text-sm" style="font-weight: 300;">Google</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Estate Photo -->
+  <section class="pb-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="overflow-hidden">
+        <img src="/images/estate/garden-walkway.jpg" alt="Brick pathway through the lush tropical garden at The Thyolo House" class="w-full aspect-[16/9] object-cover" loading="lazy" />
       </div>
     </div>
   </section>

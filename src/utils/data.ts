@@ -174,6 +174,7 @@ export const siteInfo = {
   facebook: 'https://www.facebook.com/thyolohouse',
   instagram: 'https://www.instagram.com/therealthyolohouse',
   tripadvisor: 'https://www.tripadvisor.com/Restaurant_Review-g1932945-d23950588-Reviews-The_Thyolo_House-Thyolo_Southern_Region.html',
+  google: 'https://www.google.com/maps/search/The+Thyolo+House+Conforzi+Tea+Estate+Thyolo+Malawi',
   address: 'Conforzi Tea Estate, Thyolo, Malawi',
   geo: { lat: -16.0667, lng: 35.1500 },
 };

@@ -25,37 +25,43 @@ const jsonLd = [
 
 const categoryLabels: Record<string, string> = {
   all: 'All',
-  property: 'Property',
+  art: 'Art',
   rooms: 'Rooms',
-  restaurant: 'Restaurant',
   grounds: 'Grounds',
-  experiences: 'Experiences',
+  property: 'Property',
+  restaurant: 'Restaurant',
 };
+
+// Assign varied aspect ratios for masonry effect
+const aspectClasses = ['aspect-[4/3]', 'aspect-[3/4]', 'aspect-square', 'aspect-[4/3]', 'aspect-square', 'aspect-[3/4]'];
 ---
 
 <BaseLayout
-  title="Photo Gallery"
+  title="Gallery"
   description="Browse photos of The Thyolo House — the colonial main house, rooms, Italian fusion restaurant, swimming pool, tea gardens, and indigenous forest on the Conforzi Estate."
   jsonLd={jsonLd}
 >
 
   <!-- Page Header -->
-  <section class="py-16 md:py-24 bg-card border-b border-border">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-4xl md:text-5xl font-bold text-text mb-6" style="font-family: var(--font-heading);">Photo Gallery</h1>
-      <p class="text-muted text-lg max-w-2xl mx-auto leading-relaxed">
+  <section class="py-20 md:py-32">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-up">
+      <p class="label-caps mb-6">Photography</p>
+      <h1 class="text-5xl md:text-7xl text-text mb-8" style="font-family: var(--font-heading); font-weight: 300;">
+        Gallery
+      </h1>
+      <p class="text-muted text-lg max-w-2xl mx-auto leading-relaxed" style="font-weight: 300;">
         A glimpse of life at The Thyolo House and the Conforzi Tea Estate.
       </p>
     </div>
   </section>
 
   <!-- Filter Buttons -->
-  <section class="py-8 border-b border-border sticky top-16 md:top-20 z-40 bg-bg/95 backdrop-blur">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex flex-wrap justify-center gap-2">
+  <section class="py-6 border-b border-border sticky top-16 md:top-20 z-40 bg-bg/95 backdrop-blur">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap justify-center gap-4">
         {categories.map((cat) => (
           <button
-            class="gallery-filter px-4 py-2 text-sm font-medium rounded-full border border-border transition-colors hover:bg-primary hover:text-white hover:border-primary"
+            class="gallery-filter label-caps px-4 py-2 border-b-2 border-transparent transition-colors hover:text-text hover:border-text"
             data-category={cat}
           >
             {categoryLabels[cat] || cat}
@@ -65,20 +71,23 @@ const categoryLabels: Record<string, string> = {
     </div>
   </section>
 
-  <!-- Gallery Grid -->
-  <section class="py-12 md:py-16">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Masonry Gallery Grid -->
+  <section class="py-16 md:py-24">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4" id="gallery-grid">
         {gallery.map((img, i) => (
           <div
-            class="gallery-item break-inside-avoid bg-card rounded-xl border border-border overflow-hidden hover:shadow-lg transition-shadow"
+            class="gallery-item break-inside-avoid relative group"
             data-category={img.category}
           >
-            <div class={`${i % 3 === 0 ? 'aspect-[4/3]' : i % 3 === 1 ? 'aspect-square' : 'aspect-[3/4]'} bg-primary/10 flex items-center justify-center text-muted`}>
-              <svg class="w-12 h-12 opacity-30" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909M3.75 21h16.5A2.25 2.25 0 0022.5 18.75V5.25A2.25 2.25 0 0020.25 3H3.75A2.25 2.25 0 001.5 5.25v13.5A2.25 2.25 0 003.75 21z" /></svg>
-            </div>
-            <div class="p-3">
-              <p class="text-sm text-muted leading-snug">{img.alt}</p>
+            <div class={`relative overflow-hidden ${aspectClasses[i % aspectClasses.length]}`}>
+              <img src={img.src} alt={img.alt} class="w-full h-full object-cover" loading="lazy" />
+              <!-- Hover overlay with alt text -->
+              <div class="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/60 transition-colors duration-300 z-10 flex items-end p-6">
+                <p class="text-linen text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="font-weight: 300;">
+                  {img.alt}
+                </p>
+              </div>
             </div>
           </div>
         ))}
@@ -94,7 +103,8 @@ const categoryLabels: Record<string, string> = {
       // Set initial active state
       const allBtn = document.querySelector('[data-category="all"]');
       if (allBtn) {
-        allBtn.classList.add('bg-primary', 'text-white', 'border-primary');
+        allBtn.classList.add('border-text', 'text-text');
+        allBtn.classList.remove('border-transparent');
       }
 
       buttons.forEach((btn) => {
@@ -103,9 +113,11 @@ const categoryLabels: Record<string, string> = {
 
           // Update button styles
           buttons.forEach((b) => {
-            b.classList.remove('bg-primary', 'text-white', 'border-primary');
+            b.classList.remove('border-text', 'text-text');
+            b.classList.add('border-transparent');
           });
-          btn.classList.add('bg-primary', 'text-white', 'border-primary');
+          btn.classList.add('border-text', 'text-text');
+          btn.classList.remove('border-transparent');
 
           // Filter items
           items.forEach((item) => {
