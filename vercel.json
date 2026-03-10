@@ -8,7 +8,13 @@
     { "source": "/photo-gallery.html", "destination": "/gallery/", "statusCode": 301 },
     { "source": "/Photo-Gallery", "destination": "/gallery/", "statusCode": 301 },
     { "source": "/index.html", "destination": "/", "statusCode": 301 },
-    { "source": "/Home.html", "destination": "/", "statusCode": 301 }
+    { "source": "/Home.html", "destination": "/", "statusCode": 301 },
+    { "source": "/Disclaimer.html", "destination": "/", "statusCode": 301 },
+    { "source": "/disclaimer.html", "destination": "/", "statusCode": 301 },
+    { "source": "/Privacy-Policy.html", "destination": "/", "statusCode": 301 },
+    { "source": "/privacy-policy.html", "destination": "/", "statusCode": 301 },
+    { "source": "/Terms-and-Conditions.html", "destination": "/", "statusCode": 301 },
+    { "source": "/terms-and-conditions.html", "destination": "/", "statusCode": 301 }
   ],
   "headers": [
     {
