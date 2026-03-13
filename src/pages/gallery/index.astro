@@ -77,16 +77,21 @@ const aspectClasses = ['aspect-[4/3]', 'aspect-[3/4]', 'aspect-square', 'aspect-
       <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4" id="gallery-grid">
         {gallery.map((img, i) => (
           <div
-            class="gallery-item break-inside-avoid relative group"
+            class="gallery-item break-inside-avoid relative group cursor-pointer"
             data-category={img.category}
+            data-src={img.src}
+            data-alt={img.alt}
           >
             <div class={`relative overflow-hidden ${aspectClasses[i % aspectClasses.length]}`}>
               <img src={img.src} alt={img.alt} class="w-full h-full object-cover" loading="lazy" />
-              <!-- Hover overlay with alt text -->
+              <!-- Hover overlay with alt text + zoom icon -->
               <div class="absolute inset-0 bg-charcoal/0 group-hover:bg-charcoal/60 transition-colors duration-300 z-10 flex items-end p-6">
                 <p class="text-linen text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   {img.alt}
                 </p>
+                <svg class="absolute top-4 right-4 w-6 h-6 text-linen/0 group-hover:text-linen/80 transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                </svg>
               </div>
             </div>
           </div>
@@ -94,6 +99,29 @@ const aspectClasses = ['aspect-[4/3]', 'aspect-[3/4]', 'aspect-square', 'aspect-
       </div>
     </div>
   </section>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="fixed inset-0 z-[100] hidden items-center justify-center bg-charcoal/95 backdrop-blur-sm" role="dialog" aria-modal="true">
+    <button id="lightbox-close" class="absolute top-6 right-6 text-linen/70 hover:text-linen transition-colors z-10" aria-label="Close">
+      <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <button id="lightbox-prev" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 text-linen/50 hover:text-linen transition-colors z-10" aria-label="Previous image">
+      <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+      </svg>
+    </button>
+    <button id="lightbox-next" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 text-linen/50 hover:text-linen transition-colors z-10" aria-label="Next image">
+      <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+      </svg>
+    </button>
+    <div class="max-w-[90vw] max-h-[85vh] flex flex-col items-center">
+      <img id="lightbox-img" src="" alt="" class="max-w-full max-h-[78vh] object-contain" />
+      <p id="lightbox-caption" class="text-linen/60 text-sm mt-4 text-center max-w-xl"></p>
+    </div>
+  </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -129,6 +157,73 @@ const aspectClasses = ['aspect-[4/3]', 'aspect-[3/4]', 'aspect-square', 'aspect-
             }
           });
         });
+      });
+
+      // Lightbox
+      const lightbox = document.getElementById('lightbox') as HTMLElement;
+      const lbImg = document.getElementById('lightbox-img') as HTMLImageElement;
+      const lbCaption = document.getElementById('lightbox-caption') as HTMLElement;
+      const lbClose = document.getElementById('lightbox-close') as HTMLElement;
+      const lbPrev = document.getElementById('lightbox-prev') as HTMLElement;
+      const lbNext = document.getElementById('lightbox-next') as HTMLElement;
+
+      let currentIndex = 0;
+
+      function getVisibleItems(): HTMLElement[] {
+        return Array.from(items).filter(
+          (item) => (item as HTMLElement).style.display !== 'none'
+        ) as HTMLElement[];
+      }
+
+      function openLightbox(index: number) {
+        const visible = getVisibleItems();
+        if (index < 0 || index >= visible.length) return;
+        currentIndex = index;
+        const item = visible[index];
+        lbImg.src = item.getAttribute('data-src') || '';
+        lbImg.alt = item.getAttribute('data-alt') || '';
+        lbCaption.textContent = item.getAttribute('data-alt') || '';
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        document.body.style.overflow = '';
+      }
+
+      function navigate(direction: number) {
+        const visible = getVisibleItems();
+        currentIndex = (currentIndex + direction + visible.length) % visible.length;
+        openLightbox(currentIndex);
+      }
+
+      // Click on gallery item opens lightbox
+      items.forEach((item) => {
+        item.addEventListener('click', () => {
+          const visible = getVisibleItems();
+          const index = visible.indexOf(item as HTMLElement);
+          if (index >= 0) openLightbox(index);
+        });
+      });
+
+      lbClose.addEventListener('click', closeLightbox);
+      lbPrev.addEventListener('click', () => navigate(-1));
+      lbNext.addEventListener('click', () => navigate(1));
+
+      // Click backdrop to close
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (lightbox.classList.contains('hidden')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') navigate(-1);
+        if (e.key === 'ArrowRight') navigate(1);
       });
     });
   </script>
