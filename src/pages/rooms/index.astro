@@ -6,12 +6,20 @@ const whatsappBook = `https://wa.me/${siteInfo.whatsapp}?text=${encodeURICompone
 
 const spaces = [
   {
-    name: 'The Heritage Suite',
-    label: 'Master Bedroom',
-    image: '/images/rooms/heritage-suite.jpg',
-    alt: 'The Heritage Suite — hand-carved African headboard, mosquito net, Persian rug, sunlight through French doors',
-    description: 'The signature room of the house. A hand-carved African headboard, white linen under a mosquito net canopy, antique furniture, and golden light pouring through French doors onto a Persian rug. The room opens directly onto the garden.',
+    name: 'The Master Bedroom',
+    label: 'Main House',
+    image: '/images/rooms/master-bedroom.jpg',
+    alt: 'The Master Bedroom — hand-carved African headboard, ochre walls, protea cushions, Persian rug, and natural light through French doors',
+    description: 'The signature room of the house. A hand-carved African headboard rises behind white linen and protea-print cushions. Ochre walls, antique side tables, oil paintings, and a Persian rug complete a room that feels both grand and deeply personal.',
     detail: 'En-suite bathroom · Garden view · Mosquito net · Antique furnishings',
+  },
+  {
+    name: 'The Family Cottage',
+    label: 'Cottage',
+    image: '/images/rooms/family-cottage.jpg',
+    alt: 'The Family Cottage — warm apricot walls, white linen bed with mosquito net canopy, French doors opening to tropical garden',
+    description: 'A warm, sunlit cottage with apricot walls and large French doors framing the tropical garden. White linen under a full mosquito net canopy, bedside lamps, a Persian rug, and a tea tray set for your arrival. Private and perfect for families.',
+    detail: 'En-suite bathroom · Mosquito net · Garden view · Private entrance',
   },
   {
     name: 'The Pool',
@@ -22,20 +30,20 @@ const spaces = [
     detail: 'Brick terrace · Shaded gazebo · Sun loungers · Poolside service',
   },
   {
-    name: 'The Pool Cottage',
-    label: 'Accommodation',
-    image: '/images/rooms/pool-cottage-room.jpg',
-    alt: 'The Pool Cottage — ochre walls, vaulted white ceiling, dark polished floors, bed with mosquito net canopy, and Persian rug',
-    description: 'A private cottage steps from the pool, with ochre walls rising to a vaulted white ceiling, dark polished timber floors, and a bed draped in white linen under a mosquito net canopy. French doors open onto the garden. Self-contained and peaceful.',
-    detail: 'En-suite bathroom · Private veranda · Pool access · Self-catering available',
+    name: 'The Green House',
+    label: 'Cottage',
+    image: '/images/rooms/greenhouse.jpg',
+    alt: 'The Green House — whitewashed walls, African print cushions, woven mosquito net, tea station, and kilim rug',
+    description: 'A cosy cottage with whitewashed walls and earthy tones. African geometric cushions, a woven grass mosquito net, wrought-iron furniture, and a tea station by the window. Tucked away in the garden — quiet, cool, and self-contained.',
+    detail: 'En-suite bathroom · Tea station · Mosquito net · Garden setting',
   },
   {
     name: 'The Tree of Life Room',
-    label: 'Bedroom',
-    image: '/images/rooms/tree-mural.jpg',
-    alt: 'The Tree of Life Room — Klimt-inspired mural painted behind the bed with golden spirals and a toucan',
-    description: 'Named for Flavia\'s hand-painted mural — a Klimt-inspired Tree of Life in gold and earth tones, complete with a hidden toucan. Deep purple cushions against white linen. Every room in this house is a work of art.',
-    detail: 'Hand-painted mural · En-suite bathroom · Mosquito net · Garden view',
+    label: 'Main House',
+    image: '/images/rooms/tree-of-life.jpg',
+    alt: 'The Tree of Life Room — twin beds with Klimt-inspired mural, golden spirals, toucans, and deep purple throws',
+    description: 'Named for Flavia\'s hand-painted mural — a Klimt-inspired Tree of Life in gold and earth tones, with toucans perched among golden spirals. Twin beds dressed in white linen with deep purple throws. Every room in this house is a work of art.',
+    detail: 'Hand-painted mural · Twin beds · En-suite bathroom · Mosquito nets',
   },
 ];
 
@@ -67,7 +75,7 @@ const jsonLd = [
 
 <BaseLayout
   title="Where You'll Stay"
-  description="Explore The Thyolo House — the Heritage Suite, swimming pool, and private cottages on the Conforzi Tea Estate in Thyolo, Malawi."
+  description="Explore The Thyolo House — the Master Bedroom, Family Cottage, Green House, Tree of Life Room, and swimming pool on the Conforzi Tea Estate in Thyolo, Malawi."
   jsonLd={jsonLd}
 >
 
