@@ -3,10 +3,10 @@
   "slug": "pool-cottage",
   "type": "cottage",
   "location": "poolside",
-  "description": "A private cottage nestled by the swimming pool, offering the perfect blend of seclusion and comfort. Step out your door to the pool deck, surrounded by tropical gardens and century-old trees.",
-  "amenities": ["en-suite bathroom", "pool access", "private entrance", "mosquito nets", "ceiling fan", "kitchenette", "outdoor seating"],
+  "description": "A cosy cottage with whitewashed walls and earthy tones. African geometric cushions, a woven grass mosquito net, wrought-iron furniture, and a tea station by the window. Tucked away in the garden — quiet, cool, and self-contained.",
+  "amenities": ["en-suite bathroom", "tea station", "mosquito net", "garden setting"],
   "capacity": 2,
-  "images": ["/images/rooms/pool-cottage-1.jpg"],
+  "images": ["/images/rooms/greenhouse.jpg"],
   "board_options": ["self-catering", "half-board", "full-board"],
   "price_from": null,
   "featured": true

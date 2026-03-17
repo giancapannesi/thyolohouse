@@ -1,0 +1,13 @@
+{
+  "name": "The Tree of Life Room",
+  "slug": "tree-of-life",
+  "type": "suite",
+  "location": "main_house",
+  "description": "Named for Flavia's hand-painted mural — a Klimt-inspired Tree of Life in gold and earth tones, with toucans perched among golden spirals. Twin beds dressed in white linen with deep purple throws. Every room in this house is a work of art.",
+  "amenities": ["hand-painted mural", "twin beds", "en-suite bathroom", "mosquito nets"],
+  "capacity": 2,
+  "images": ["/images/rooms/tree-of-life.jpg"],
+  "board_options": ["self-catering", "half-board", "full-board"],
+  "price_from": null,
+  "featured": true
+}

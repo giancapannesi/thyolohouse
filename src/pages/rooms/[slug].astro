@@ -20,19 +20,19 @@ const allRooms = getAllRooms();
 const otherRooms = allRooms.filter((r) => r.slug !== room.slug);
 
 const roomHeroImages: Record<string, string> = {
-  'heritage-suite': '/images/rooms/heritage-suite.jpg',
-  'garden-suite': '/images/rooms/tree-mural.jpg',
-  'tea-estate-suite': '/images/rooms/heritage-suite.jpg',
-  'forest-cottage': '/images/estate/main-house.jpg',
-  'pool-cottage': '/images/rooms/pool-cottage-room.jpg',
+  'master-bedroom': '/images/rooms/master-bedroom.jpg',
+  'family-cottage': '/images/rooms/family-cottage.jpg',
+  'pool-cottage': '/images/rooms/greenhouse.jpg',
+  'green-house': '/images/rooms/pool-cottage-room.jpg',
+  'tree-of-life': '/images/rooms/tree-of-life.jpg',
 };
 
 const roomThumbImages: Record<string, string> = {
-  'heritage-suite': '/images/rooms/heritage-suite.jpg',
-  'garden-suite': '/images/rooms/tree-mural.jpg',
-  'tea-estate-suite': '/images/rooms/heritage-suite.jpg',
-  'forest-cottage': '/images/estate/main-house.jpg',
-  'pool-cottage': '/images/rooms/pool-cottage-room.jpg',
+  'master-bedroom': '/images/rooms/master-bedroom.jpg',
+  'family-cottage': '/images/rooms/family-cottage.jpg',
+  'pool-cottage': '/images/rooms/greenhouse.jpg',
+  'green-house': '/images/rooms/pool-cottage-room.jpg',
+  'tree-of-life': '/images/rooms/tree-of-life.jpg',
 };
 
 const whatsappBook = `https://wa.me/${siteInfo.whatsapp}?text=${encodeURIComponent(`Hello! I'd like to enquire about ${room.name} at The Thyolo House. Could you let me know availability?`)}`;
@@ -79,7 +79,7 @@ const jsonLd = [
 
   <!-- Hero Image -->
   <section class="relative overflow-hidden">
-    <img src={roomHeroImages[room.slug] || '/images/rooms/heritage-suite.jpg'} alt={`${room.name} at The Thyolo House`} class="w-full aspect-[21/9] object-cover" />
+    <img src={roomHeroImages[room.slug] || '/images/rooms/master-bedroom.jpg'} alt={`${room.name} at The Thyolo House`} class="w-full aspect-[21/9] object-cover" />
   </section>
 
   <!-- Room Details -->
@@ -183,7 +183,7 @@ const jsonLd = [
         {otherRooms.map((r) => (
           <a href={`/rooms/${r.slug}/`} class="group">
             <div class="aspect-[4/3] mb-4 overflow-hidden">
-              <img src={roomThumbImages[r.slug] || '/images/rooms/heritage-suite.jpg'} alt={`${r.name} at The Thyolo House`} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <img src={roomThumbImages[r.slug] || '/images/rooms/master-bedroom.jpg'} alt={`${r.name} at The Thyolo House`} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
             </div>
             <p class="label-caps mb-2">
               {r.type === 'suite' ? 'Suite' : 'Cottage'}

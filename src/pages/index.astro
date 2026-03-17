@@ -9,11 +9,11 @@ const testimonials = getTestimonials();
 const whatsappBook = `https://wa.me/${siteInfo.whatsapp}?text=${encodeURIComponent("Hello! I'd like to enquire about availability at The Thyolo House.")}`;
 
 const roomImages: Record<string, string> = {
-  'heritage-suite': '/images/rooms/heritage-suite.jpg',
-  'garden-suite': '/images/rooms/tree-mural.jpg',
-  'tea-estate-suite': '/images/rooms/heritage-suite.jpg',
-  'forest-cottage': '/images/estate/main-house.jpg',
-  'pool-cottage': '/images/rooms/pool-cottage-room.jpg',
+  'master-bedroom': '/images/rooms/master-bedroom.jpg',
+  'family-cottage': '/images/rooms/family-cottage.jpg',
+  'pool-cottage': '/images/rooms/greenhouse.jpg',
+  'green-house': '/images/rooms/pool-cottage-room.jpg',
+  'tree-of-life': '/images/rooms/tree-of-life.jpg',
 };
 
 const experienceImages: Record<string, string> = {
@@ -140,7 +140,7 @@ const jsonLd = [
         {rooms.slice(0, 2).map((room, i) => (
           <a href={`/rooms/${room.slug}/`} class={`group ${i === 0 ? 'md:col-span-7' : 'md:col-span-5'}`}>
             <div class="aspect-[4/3] mb-4 overflow-hidden">
-              <img src={roomImages[room.slug] || '/images/rooms/heritage-suite.jpg'} alt={`${room.name} at The Thyolo House`} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <img src={roomImages[room.slug] || '/images/rooms/master-bedroom.jpg'} alt={`${room.name} at The Thyolo House`} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
             </div>
             <div class="flex items-baseline justify-between">
               <h3 class="text-xl md:text-2xl text-text group-hover:text-primary transition-colors" style="font-family: var(--font-heading);">
@@ -154,7 +154,7 @@ const jsonLd = [
         {rooms.slice(2, 4).map((room, i) => (
           <a href={`/rooms/${room.slug}/`} class={`group ${i === 0 ? 'md:col-span-5' : 'md:col-span-7'}`}>
             <div class="aspect-[4/3] mb-4 overflow-hidden">
-              <img src={roomImages[room.slug] || '/images/rooms/heritage-suite.jpg'} alt={`${room.name} at The Thyolo House`} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              <img src={roomImages[room.slug] || '/images/rooms/master-bedroom.jpg'} alt={`${room.name} at The Thyolo House`} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
             </div>
             <div class="flex items-baseline justify-between">
               <h3 class="text-xl md:text-2xl text-text group-hover:text-primary transition-colors" style="font-family: var(--font-heading);">

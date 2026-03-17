@@ -1,0 +1,13 @@
+{
+  "name": "The Green House",
+  "slug": "green-house",
+  "type": "cottage",
+  "location": "poolside",
+  "description": "A private cottage steps from the pool, with ochre walls rising to a vaulted white ceiling, dark polished timber floors, and a bed draped in white linen under a mosquito net canopy. French doors open onto the garden. Self-contained and peaceful.",
+  "amenities": ["en-suite bathroom", "private veranda", "pool access", "self-catering available"],
+  "capacity": 2,
+  "images": ["/images/rooms/pool-cottage-room.jpg"],
+  "board_options": ["self-catering", "half-board", "full-board"],
+  "price_from": null,
+  "featured": true
+}

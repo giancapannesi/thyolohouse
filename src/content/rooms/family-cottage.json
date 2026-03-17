@@ -1,0 +1,13 @@
+{
+  "name": "The Family Cottage",
+  "slug": "family-cottage",
+  "type": "cottage",
+  "location": "poolside",
+  "description": "A warm, sunlit cottage with apricot walls and large French doors framing the tropical garden. White linen under a full mosquito net canopy, bedside lamps, a Persian rug, and a tea tray set for your arrival. Private and perfect for families.",
+  "amenities": ["en-suite bathroom", "mosquito net", "garden view", "private entrance"],
+  "capacity": 4,
+  "images": ["/images/rooms/family-cottage.jpg"],
+  "board_options": ["self-catering", "half-board", "full-board"],
+  "price_from": null,
+  "featured": true
+}

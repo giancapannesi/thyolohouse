@@ -1,0 +1,13 @@
+{
+  "name": "The Master Bedroom",
+  "slug": "master-bedroom",
+  "type": "suite",
+  "location": "main_house",
+  "description": "The signature room of the house. A hand-carved African headboard rises behind white linen and protea-print cushions. Ochre walls, antique side tables, oil paintings, and a Persian rug complete a room that feels both grand and deeply personal.",
+  "amenities": ["en-suite bathroom", "garden view", "mosquito net", "antique furnishings", "king bed"],
+  "capacity": 2,
+  "images": ["/images/rooms/master-bedroom.jpg"],
+  "board_options": ["self-catering", "half-board", "full-board"],
+  "price_from": null,
+  "featured": true
+}
