@@ -14,14 +14,6 @@ const spaces = [
     detail: 'En-suite bathroom · Garden view · Mosquito net · Antique furnishings',
   },
   {
-    name: 'The Dining Room',
-    label: 'Common Area',
-    image: '/images/rooms/dining-room.jpg',
-    alt: 'The Dining Room — atmospheric room with dark polished table, hanging plants, and large windows looking into the garden',
-    description: 'An atmospheric room where dark polished wood meets cascading greenery. Large colonial windows frame the garden outside, while hanging ferns and a chandelier create an intimate setting for Flavia\'s Italian fusion meals.',
-    detail: 'Seats 10 · Garden views · Available for private dining',
-  },
-  {
     name: 'The Pool',
     label: 'Grounds',
     image: '/images/estate/pool-area.jpg',
@@ -52,7 +44,7 @@ const jsonLd = [
     "@context": "https://schema.org",
     "@type": "LodgingBusiness",
     "name": siteInfo.name,
-    "description": "A historic colonial farmhouse on the Conforzi Tea Estate — bedrooms, sitting room, dining room, pool, and private cottages surrounded by tea gardens and forest.",
+    "description": "A historic colonial farmhouse on the Conforzi Tea Estate — bedrooms, swimming pool, and private cottages surrounded by tea gardens and forest.",
     "url": `${siteInfo.url}/rooms/`,
     "telephone": siteInfo.phone,
     "address": {
@@ -75,7 +67,7 @@ const jsonLd = [
 
 <BaseLayout
   title="Where You'll Stay"
-  description="Explore The Thyolo House — the Heritage Suite, sitting room, dining room, swimming pool, and private cottages on the Conforzi Tea Estate in Thyolo, Malawi."
+  description="Explore The Thyolo House — the Heritage Suite, swimming pool, and private cottages on the Conforzi Tea Estate in Thyolo, Malawi."
   jsonLd={jsonLd}
 >
 
