@@ -11,7 +11,8 @@ interface Props {
 }
 
 const { title, description, canonical, ogImage, jsonLd } = Astro.props;
-const fullTitle = title.includes('Thyolo House') ? title : `${title} | The Thyolo House`;
+const withSuffix = title.includes('Thyolo House') ? title : `${title} | The Thyolo House`;
+const fullTitle = withSuffix.length <= 60 ? withSuffix : (title.length <= 60 ? title : title.slice(0, 57) + '...');
 const canonicalUrl = canonical || new URL(Astro.url.pathname, siteInfo.url).toString();
 const ogImg = ogImage || `${siteInfo.url}/images/og-default.jpg`;
 const whatsappUrl = `https://wa.me/${siteInfo.whatsapp}?text=${encodeURIComponent('Hello! I\'d like to enquire about The Thyolo House.')}`;
