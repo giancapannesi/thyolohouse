@@ -7,6 +7,25 @@
       "destination": "https://thyolohouse.com/$1",
       "statusCode": 301
     },
+    { "source": "/HOME.html", "destination": "/", "statusCode": 301 },
+    { "source": "/day-trips-from-blantyre", "destination": "/blog/complete-guide-thyolo-malawi/", "statusCode": 301 },
+    { "source": "/day-trips-from-blantyre/", "destination": "/blog/complete-guide-thyolo-malawi/", "statusCode": 301 },
+    { "source": "/complete-guide-thyolo-malawi", "destination": "/blog/complete-guide-thyolo-malawi/", "statusCode": 301 },
+    { "source": "/complete-guide-thyolo-malawi/", "destination": "/blog/complete-guide-thyolo-malawi/", "statusCode": 301 },
+    { "source": "/story-of-conforzi-tea-estate", "destination": "/blog/story-of-conforzi-tea-estate/", "statusCode": 301 },
+    { "source": "/story-of-conforzi-tea-estate/", "destination": "/blog/story-of-conforzi-tea-estate/", "statusCode": 301 },
+    { "source": "/spaces/:path*/", "destination": "/experiences/", "statusCode": 301 },
+    { "source": "/spaces/:path*", "destination": "/experiences/", "statusCode": 301 },
+    { "source": "/spaces", "destination": "/experiences/", "statusCode": 301 },
+    { "source": "/spaces/", "destination": "/experiences/", "statusCode": 301 },
+    { "source": "/rooms/heritage-suite/", "destination": "/rooms/", "statusCode": 301 },
+    { "source": "/rooms/heritage-suite", "destination": "/rooms/", "statusCode": 301 },
+    { "source": "/rooms/forest-cottage/", "destination": "/rooms/", "statusCode": 301 },
+    { "source": "/rooms/forest-cottage", "destination": "/rooms/", "statusCode": 301 },
+    { "source": "/rooms/tea-estate-suite/", "destination": "/rooms/", "statusCode": 301 },
+    { "source": "/rooms/tea-estate-suite", "destination": "/rooms/", "statusCode": 301 },
+    { "source": "/rooms/garden-suite/", "destination": "/rooms/", "statusCode": 301 },
+    { "source": "/rooms/garden-suite", "destination": "/rooms/", "statusCode": 301 },
     {
       "source": "/experiences/pool-garden",
       "destination": "/experiences/",
@@ -29,12 +48,12 @@
     },
     {
       "source": "/blog/tea-farms-malawi-tours-tastings-stays-guide",
-      "destination": "/blog/tea-farms-malawi-visitor-guide/",
+      "destination": "/blog/tea-farms-malawi-practical-visit-tips/",
       "statusCode": 301
     },
     {
       "source": "/blog/tea-farms-malawi-tours-tastings-stays-guide/",
-      "destination": "/blog/tea-farms-malawi-visitor-guide/",
+      "destination": "/blog/tea-farms-malawi-practical-visit-tips/",
       "statusCode": 301
     },
     {
