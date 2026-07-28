@@ -1,47 +1,370 @@
 {
+  "trailingSlash": true,
   "redirects": [
-    { "source": "/Restaurant.html", "destination": "/restaurant/", "statusCode": 301 },
-    { "source": "/restaurant.html", "destination": "/restaurant/", "statusCode": 301 },
-    { "source": "/Contact.html", "destination": "/contact/", "statusCode": 301 },
-    { "source": "/contact.html", "destination": "/contact/", "statusCode": 301 },
-    { "source": "/Photo-Gallery.html", "destination": "/gallery/", "statusCode": 301 },
-    { "source": "/photo-gallery.html", "destination": "/gallery/", "statusCode": 301 },
-    { "source": "/Photo-Gallery", "destination": "/gallery/", "statusCode": 301 },
-    { "source": "/index.html", "destination": "/", "statusCode": 301 },
-    { "source": "/Home.html", "destination": "/", "statusCode": 301 },
-    { "source": "/Disclaimer.html", "destination": "/", "statusCode": 301 },
-    { "source": "/disclaimer.html", "destination": "/", "statusCode": 301 },
-    { "source": "/Privacy-Policy.html", "destination": "/", "statusCode": 301 },
-    { "source": "/privacy-policy.html", "destination": "/", "statusCode": 301 },
-    { "source": "/Terms-and-Conditions.html", "destination": "/", "statusCode": 301 },
-    { "source": "/terms-and-conditions.html", "destination": "/", "statusCode": 301 }
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.thyolohouse.com" }],
+      "destination": "https://thyolohouse.com/$1",
+      "statusCode": 301
+    },
+    {
+      "source": "/experiences/pool-garden",
+      "destination": "/experiences/",
+      "statusCode": 301
+    },
+    {
+      "source": "/experiences/pool-garden/",
+      "destination": "/experiences/",
+      "statusCode": 301
+    },
+    {
+      "source": "/experiences/art-studio",
+      "destination": "/experiences/",
+      "statusCode": 301
+    },
+    {
+      "source": "/experiences/art-studio/",
+      "destination": "/experiences/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tea-farms-malawi-tours-tastings-stays-guide",
+      "destination": "/blog/tea-farms-malawi-visitor-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/tea-farms-malawi-tours-tastings-stays-guide/",
+      "destination": "/blog/tea-farms-malawi-visitor-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/best-accommodation-malawi-24-hour-day-itinerary",
+      "destination": "/blog/best-accommodation-malawi-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/best-accommodation-malawi-24-hour-day-itinerary/",
+      "destination": "/blog/best-accommodation-malawi-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/images/blog/best-accommodation-malawi-24-hour-day-itinerary.jpg",
+      "destination": "/images/estate/main-house.jpg",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/day-trips-from-blantyre-historical-tea-country-route",
+      "destination": "/blog/complete-guide-thyolo-malawi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/day-trips-from-blantyre-historical-tea-country-route/",
+      "destination": "/blog/complete-guide-thyolo-malawi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/images/blog/day-trips-from-blantyre-historical-tea-country-route.jpg",
+      "destination": "/images/estate/main-house.jpg",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/day-trips-from-blantyre",
+      "destination": "/blog/complete-guide-thyolo-malawi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/day-trips-from-blantyre/",
+      "destination": "/blog/complete-guide-thyolo-malawi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/images/blog/day-trips-from-blantyre.jpg",
+      "destination": "/images/estate/main-house.jpg",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/malawi-travel-guide-food-culture-first-trip",
+      "destination": "/blog/travel-malawi-complete-guide-first-time-visitors/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/malawi-travel-guide-food-culture-first-trip/",
+      "destination": "/blog/travel-malawi-complete-guide-first-time-visitors/",
+      "statusCode": 301
+    },
+    {
+      "source": "/images/blog/malawi-travel-guide-food-culture-first-trip.jpg",
+      "destination": "/images/estate/main-house.jpg",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/malawi-visa-travel-tips-day-one-itinerary",
+      "destination": "/blog/malawi-visa-and-travel-tips-entry-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/malawi-visa-travel-tips-day-one-itinerary/",
+      "destination": "/blog/malawi-visa-and-travel-tips-entry-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/images/blog/malawi-visa-travel-tips-day-one-itinerary.jpg",
+      "destination": "/images/estate/main-house.jpg",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/malawi-trips-7-day-itinerary-guide",
+      "destination": "/blog/southern-malawi-travel-highlands-route-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/malawi-trips-7-day-itinerary-guide/",
+      "destination": "/blog/southern-malawi-travel-highlands-route-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/images/blog/malawi-trips-7-day-itinerary-guide.jpg",
+      "destination": "/images/estate/main-house.jpg",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/malawi-trips-historical-travellers-route",
+      "destination": "/blog/southern-malawi-travel-colonial-era-history-route/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/malawi-trips-historical-travellers-route/",
+      "destination": "/blog/southern-malawi-travel-colonial-era-history-route/",
+      "statusCode": 301
+    },
+    {
+      "source": "/images/blog/malawi-trips-historical-travellers-route.jpg",
+      "destination": "/images/estate/main-house.jpg",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/mulanje-day-trips-guide",
+      "destination": "/blog/things-to-do-in-mulanje/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/mulanje-day-trips-guide/",
+      "destination": "/blog/things-to-do-in-mulanje/",
+      "statusCode": 301
+    },
+    {
+      "source": "/images/blog/mulanje-day-trips-guide.jpg",
+      "destination": "/images/estate/main-house.jpg",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/mulanje-day-trips-half-day-loops-tea-estate",
+      "destination": "/blog/things-to-do-in-mulanje/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/mulanje-day-trips-half-day-loops-tea-estate/",
+      "destination": "/blog/things-to-do-in-mulanje/",
+      "statusCode": 301
+    },
+    {
+      "source": "/images/blog/mulanje-day-trips-half-day-loops-tea-estate.jpg",
+      "destination": "/images/estate/main-house.jpg",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/mulanje-trips-complete-planning-guide",
+      "destination": "/blog/mulanje-hikes-complete-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/mulanje-trips-complete-planning-guide/",
+      "destination": "/blog/mulanje-hikes-complete-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/images/blog/mulanje-trips-complete-planning-guide.jpg",
+      "destination": "/images/estate/main-house.jpg",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/places-to-visit-near-thyolo-malawi-day-trips-guide",
+      "destination": "/blog/complete-guide-thyolo-malawi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/places-to-visit-near-thyolo-malawi-day-trips-guide/",
+      "destination": "/blog/complete-guide-thyolo-malawi/",
+      "statusCode": 301
+    },
+    {
+      "source": "/images/blog/places-to-visit-near-thyolo-malawi-day-trips-guide.jpg",
+      "destination": "/images/estate/main-house.jpg",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/southern-malawi-travel-off-map-tea-estate-itinerary",
+      "destination": "/blog/southern-malawi-travel-highlands-route-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/southern-malawi-travel-off-map-tea-estate-itinerary/",
+      "destination": "/blog/southern-malawi-travel-highlands-route-guide/",
+      "statusCode": 301
+    },
+    {
+      "source": "/images/blog/southern-malawi-travel-off-map-tea-estate-itinerary.jpg",
+      "destination": "/images/estate/main-house.jpg",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/travel-through-malawi-road-trip-routes-stops-guide",
+      "destination": "/blog/travel-malawi-complete-guide-first-time-visitors/",
+      "statusCode": 301
+    },
+    {
+      "source": "/blog/travel-through-malawi-road-trip-routes-stops-guide/",
+      "destination": "/blog/travel-malawi-complete-guide-first-time-visitors/",
+      "statusCode": 301
+    },
+    {
+      "source": "/images/blog/travel-through-malawi-road-trip-routes-stops-guide.jpg",
+      "destination": "/images/estate/main-house.jpg",
+      "statusCode": 301
+    },
+    {
+      "source": "/experiences/tea-walks",
+      "destination": "/experiences/",
+      "statusCode": 301
+    },
+    {
+      "source": "/experiences/tea-walks/",
+      "destination": "/experiences/",
+      "statusCode": 301
+    },
+    {
+      "source": "/Restaurant.html",
+      "destination": "/restaurant/",
+      "statusCode": 301
+    },
+    {
+      "source": "/restaurant.html",
+      "destination": "/restaurant/",
+      "statusCode": 301
+    },
+    {
+      "source": "/Contact.html",
+      "destination": "/contact/",
+      "statusCode": 301
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/contact/",
+      "statusCode": 301
+    },
+    {
+      "source": "/Photo-Gallery.html",
+      "destination": "/gallery/",
+      "statusCode": 301
+    },
+    {
+      "source": "/photo-gallery.html",
+      "destination": "/gallery/",
+      "statusCode": 301
+    },
+    {
+      "source": "/Photo-Gallery",
+      "destination": "/gallery/",
+      "statusCode": 301
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/Home.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/Disclaimer.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/disclaimer.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/Privacy-Policy.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/privacy-policy.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/Terms-and-Conditions.html",
+      "destination": "/",
+      "statusCode": 301
+    },
+    {
+      "source": "/terms-and-conditions.html",
+      "destination": "/",
+      "statusCode": 301
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "Strict-Transport-Security", "value": "max-age=31536000; includeSubDomains" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
       ]
     },
     {
       "source": "/rooms/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400, s-maxage=604800" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, s-maxage=604800"
+        }
       ]
     },
     {
       "source": "/blog/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=86400, s-maxage=604800" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, s-maxage=604800"
+        }
       ]
     },
     {
       "source": "/images/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=2592000, s-maxage=31536000, immutable" }
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, s-maxage=31536000, immutable"
+        }
       ]
     }
   ]
