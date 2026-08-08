@@ -7,6 +7,10 @@
       "destination": "https://thyolohouse.com/$1",
       "statusCode": 301
     },
+    { "source": "/blog/tea-farms-malawi-visitor-guide", "destination": "/blog/tea-farms-malawi-practical-visit-tips/", "statusCode": 301 },
+    { "source": "/blog/tea-farms-malawi-visitor-guide/", "destination": "/blog/tea-farms-malawi-practical-visit-tips/", "statusCode": 301 },
+    { "source": "/blog/thyolo-tea-country-nature-walkers-guide", "destination": "/blog/thyolo-tea-estate-tours-guide/", "statusCode": 301 },
+    { "source": "/blog/thyolo-tea-country-nature-walkers-guide/", "destination": "/blog/thyolo-tea-estate-tours-guide/", "statusCode": 301 },
     { "source": "/HOME.html", "destination": "/", "statusCode": 301 },
     { "source": "/day-trips-from-blantyre", "destination": "/blog/complete-guide-thyolo-malawi/", "statusCode": 301 },
     { "source": "/day-trips-from-blantyre/", "destination": "/blog/complete-guide-thyolo-malawi/", "statusCode": 301 },
