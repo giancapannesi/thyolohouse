@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteInfo } from '../utils/data';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Terms & Conditions",
+    "description": "Terms and conditions for guests of The Thyolo House — booking, cancellation, house rules, and liability.",
+    "url": `${siteInfo.url}/terms/`,
+    "publisher": {
+      "@type": "LodgingBusiness",
+      "name": siteInfo.name,
+      "url": siteInfo.url
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": siteInfo.url },
+      { "@type": "ListItem", "position": 2, "name": "Terms & Conditions", "item": `${siteInfo.url}/terms/` }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Terms & Conditions"
+  description="Terms and conditions for guests of The Thyolo House — booking, cancellation, house rules, and liability."
+  jsonLd={jsonLd}
+>
+
+  <section class="py-20 md:py-32">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="label-caps mb-6">Legal</p>
+      <h1 class="text-4xl md:text-6xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 300;">Terms &amp; Conditions</h1>
+      <p class="text-muted mb-12">Last updated: August 11, 2026</p>
+
+      <div class="space-y-10 text-muted leading-relaxed">
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">1. Agreement</h2>
+          <p>These Terms &amp; Conditions govern your use of thyolohouse.com and any booking or stay at The Thyolo House ("we," "us," "our"), a boutique hotel and restaurant located in the Thyolo Highlands, Malawi, operated as a property of Cosmic Phoenix LLC (Cheyenne, WY, USA). By using this website or booking a stay with us, you agree to these Terms.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">2. Bookings and Confirmation</h2>
+          <p>All bookings are subject to availability and are only confirmed once we have provided written confirmation (email or WhatsApp) with a booking reference. Rates quoted on the website are indicative and may change with season, occupancy, and board option. The rate and inclusions in your written confirmation are the ones that apply to your stay.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">3. Payment</h2>
+          <p>A deposit may be required to secure your booking. Balance is payable on arrival or by prior arrangement. We accept the payment methods stated in your confirmation. All prices are in the currency shown in your confirmation.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">4. Cancellation and No-Show</h2>
+          <p>Cancellation terms are stated in your booking confirmation and depend on the season and room type. As a general guide:</p>
+          <ul class="list-disc pl-6 space-y-2 mt-3">
+            <li>Cancellations more than 14 days before arrival: full refund of any deposit paid, less any non-refundable transaction fees.</li>
+            <li>Cancellations 7&ndash;14 days before arrival: 50% of the total stay may be retained.</li>
+            <li>Cancellations less than 7 days before arrival, no-shows, or early departures: the full booked stay may be charged.</li>
+          </ul>
+          <p class="mt-3">Where your booking confirmation states different terms (e.g. for peak season, groups, or the whole-house buyout), those terms take precedence.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">5. Check-in, Check-out, and Identification</h2>
+          <p>Standard check-in is from 14:00 and check-out is by 11:00. Early check-in and late check-out are subject to availability. All guests must present valid photographic identification (passport or national ID) at check-in.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">6. House Rules</h2>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>The Thyolo House is a quiet property. Please respect other guests and staff at all times.</li>
+            <li>The house, garden, and artwork are private property. Please treat them with care.</li>
+            <li>Smoking is permitted outdoors only, in designated areas.</li>
+            <li>Children are welcome; parents/guardians are responsible for supervising children at all times, particularly around the swimming pool.</li>
+            <li>Well-behaved pets may be accommodated by prior arrangement only; a pet supplement may apply.</li>
+            <li>Damage to the property, furnishings, or artwork will be charged to the guest.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">7. Meals, Dietary Requirements, and Restaurant</h2>
+          <p>Meals included in your board option are stated in your confirmation. We do our best to accommodate dietary requirements (vegetarian, vegan, gluten-free, allergies) with advance notice &mdash; please tell us at the time of booking. Restaurant service to non-resident guests is by reservation only.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">8. Liability</h2>
+          <p>The Thyolo House provides accommodation, meals, and experiences with reasonable care. To the extent permitted by Malawian law, we are not liable for:</p>
+          <ul class="list-disc pl-6 space-y-2 mt-3">
+            <li>Personal injury or loss arising from a guest's own actions, including but not limited to swimming pool use, garden walks, and off-property excursions.</li>
+            <li>Loss, theft, or damage to guest belongings not deposited in the property safe.</li>
+            <li>Disruptions caused by circumstances outside our control (weather, power, water, road access, government action).</li>
+          </ul>
+          <p class="mt-3">Nothing in these Terms limits liability that cannot be limited under applicable law.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">9. Use of AI in Website Content</h2>
+          <p>Portions of the content on thyolohouse.com &mdash; including blog articles, room descriptions, and guide content &mdash; are drafted with the assistance of AI tools and reviewed by us before publishing. Booking confirmations, direct responses to enquiries, on-property service, and pricing details are handled by real people. If you spot an error on the website, please <a href="/contact/" class="underline hover:text-text">contact us</a> and we will correct it.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">10. Website Content and Intellectual Property</h2>
+          <p>All photography, artwork, written content, and design on thyolohouse.com are the property of The Thyolo House / Cosmic Phoenix LLC and its licensors. Original artwork on the property is the copyright of the artist. You may not reproduce, redistribute, or commercially use website content or artwork without written permission.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">11. Privacy and Data</h2>
+          <p>Our handling of personal information is described in our <a href="/privacy/" class="underline hover:text-text">Privacy Policy</a>. By making a booking or contacting us, you agree to that policy.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">12. Governing Law</h2>
+          <p>These Terms are governed by the laws of the Republic of Malawi in respect of your stay at the property. Disputes relating to the website or online services are governed by the laws of the State of Wyoming, USA, where the operating entity Cosmic Phoenix LLC is registered.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">13. Changes to These Terms</h2>
+          <p>We may update these Terms from time to time. The current version is always available at this page, with a "last updated" date at the top. Continued use of the website or a stay booked after an update means you accept the updated Terms.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">14. Contact</h2>
+          <p>Questions about these Terms? Email <a href={`mailto:${siteInfo.email}`} class="underline hover:text-text">{siteInfo.email}</a> or reach us via the <a href="/contact/" class="underline hover:text-text">contact page</a>.</p>
+        </section>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

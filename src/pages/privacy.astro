@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteInfo } from '../utils/data';
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Privacy Policy",
+    "description": "How The Thyolo House collects, uses, stores, and protects your personal information.",
+    "url": `${siteInfo.url}/privacy/`,
+    "publisher": {
+      "@type": "LodgingBusiness",
+      "name": siteInfo.name,
+      "url": siteInfo.url
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": siteInfo.url },
+      { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": `${siteInfo.url}/privacy/` }
+    ]
+  }
+];
+---
+
+<BaseLayout
+  title="Privacy Policy"
+  description="How The Thyolo House collects, uses, stores, and protects your personal information."
+  jsonLd={jsonLd}
+>
+
+  <section class="py-20 md:py-32">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <p class="label-caps mb-6">Legal</p>
+      <h1 class="text-4xl md:text-6xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 300;">Privacy Policy</h1>
+      <p class="text-muted mb-12">Last updated: August 11, 2026</p>
+
+      <div class="space-y-10 text-muted leading-relaxed">
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">Who we are</h2>
+          <p>The Thyolo House is a boutique hotel and restaurant located in the Thyolo Highlands, Malawi, operated as a property of Cosmic Phoenix LLC (Cheyenne, Wyoming, USA). This policy explains what personal information we collect through thyolohouse.com and during your stay, how we use it, and your choices.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">Information we collect</h2>
+          <p>We collect the following categories of personal information:</p>
+          <ul class="list-disc pl-6 space-y-2 mt-3">
+            <li><strong class="text-text">Booking and enquiry information</strong> &mdash; name, email address, phone/WhatsApp number, arrival and departure dates, number of guests, room preferences, dietary requirements, and any notes you send us.</li>
+            <li><strong class="text-text">Identification at check-in</strong> &mdash; passport or national ID details required by Malawian regulations for guest registration. These are recorded in our guest register and not transmitted elsewhere.</li>
+            <li><strong class="text-text">Payment information</strong> &mdash; where deposits or payments are made electronically, transaction details are processed by our payment provider. We do not store full card numbers on our systems.</li>
+            <li><strong class="text-text">Correspondence</strong> &mdash; emails, WhatsApp messages, and contact-form submissions you send to us.</li>
+            <li><strong class="text-text">Website analytics</strong> &mdash; basic aggregate information about visits to thyolohouse.com (pages viewed, referrer, approximate location by country, device type) collected via privacy-respecting analytics.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">How we use your information</h2>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>To respond to your enquiry, confirm your booking, and provide the stay you have booked.</li>
+            <li>To meet our legal obligations under Malawian hospitality and immigration regulations (guest register).</li>
+            <li>To process payments and issue receipts or invoices.</li>
+            <li>To communicate with you about your booking, arrival logistics, and on-property services.</li>
+            <li>To improve the website, our services, and understand which content is useful.</li>
+            <li>To send you occasional updates about the property &mdash; only if you have opted in.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">Legal basis</h2>
+          <p>We process your information because it is necessary to provide the accommodation and services you have requested (performance of a contract), to meet our legal obligations, or on the basis of your consent (for marketing communications, which you can withdraw at any time).</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">Who we share it with</h2>
+          <p>We do not sell your personal information. We share it only with:</p>
+          <ul class="list-disc pl-6 space-y-2 mt-3">
+            <li><strong class="text-text">Service providers</strong> we use to run the business &mdash; email hosting, website hosting (Vercel), payment processors, and communication tools (e.g. WhatsApp) &mdash; strictly for the purposes described above.</li>
+            <li><strong class="text-text">Government and regulatory bodies</strong> where we are legally required to disclose (e.g. guest register, tax authorities).</li>
+            <li><strong class="text-text">Professional advisers</strong> (accountants, lawyers) under confidentiality where necessary.</li>
+          </ul>
+          <p class="mt-3">We do not transfer your personal information to third parties for their own marketing purposes.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">International transfers</h2>
+          <p>Some of our service providers (website hosting, email) are located outside Malawi. Where information is transferred internationally, we rely on the standard protections offered by those providers under their own data-protection frameworks.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">How long we keep it</h2>
+          <ul class="list-disc pl-6 space-y-2">
+            <li>Booking and guest-register records: retained as long as required by Malawian law (typically several years for tax and regulatory purposes).</li>
+            <li>Correspondence: retained while the enquiry or relationship is active, then archived or deleted.</li>
+            <li>Marketing contact details: retained until you unsubscribe.</li>
+            <li>Website analytics: retained in aggregated form only.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">Cookies and tracking</h2>
+          <p>Our website uses only essential cookies and privacy-respecting analytics to understand how visitors use the site. We do not use advertising trackers or third-party marketing pixels. You can control cookies through your browser settings.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">Your rights</h2>
+          <p>You can ask us to:</p>
+          <ul class="list-disc pl-6 space-y-2 mt-3">
+            <li>Provide a copy of the personal information we hold about you.</li>
+            <li>Correct any information that is inaccurate or incomplete.</li>
+            <li>Delete your information, subject to any legal retention obligations.</li>
+            <li>Stop sending you marketing communications at any time.</li>
+          </ul>
+          <p class="mt-3">To exercise any of these rights, email <a href={`mailto:${siteInfo.email}`} class="underline hover:text-text">{siteInfo.email}</a>.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">Children</h2>
+          <p>The website is not directed at children under 16. We do not knowingly collect personal information from children. Where children stay at the property, their information is provided by the responsible adult on the booking.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">Security</h2>
+          <p>We take reasonable technical and organisational measures to protect your personal information against loss, misuse, and unauthorised access. No online transmission can be guaranteed 100% secure &mdash; but we handle your information as carefully as we handle the guests who share it with us.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">Changes to this policy</h2>
+          <p>We may update this policy from time to time. The current version is always at this page, with a "last updated" date at the top.</p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl text-text mb-4" style="font-family: var(--font-heading); font-weight: 400;">Contact</h2>
+          <p>Questions about privacy or your information? Email <a href={`mailto:${siteInfo.email}`} class="underline hover:text-text">{siteInfo.email}</a> or use the <a href="/contact/" class="underline hover:text-text">contact page</a>.</p>
+        </section>
+
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
